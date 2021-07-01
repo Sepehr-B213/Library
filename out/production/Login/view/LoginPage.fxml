@@ -8,63 +8,69 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="424.0" prefWidth="667.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <JFXPasswordField layoutX="230.0" layoutY="236.0" prefHeight="25.0" prefWidth="238.0" promptText="password">
-         <unFocusColor>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop color="#0f3cd0" />
-                  <Stop color="#11acd7" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </unFocusColor>
-      </JFXPasswordField>
-      <JFXTextField layoutX="230.0" layoutY="173.0" prefHeight="25.0" prefWidth="238.0" promptText="username">
-         <unFocusColor>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop color="#0a35ab" />
-                  <Stop color="#0dcdeb" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </unFocusColor>
-      </JFXTextField>
-      <ImageView blendMode="LIGHTEN" fitHeight="108.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/concept1.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="35.0" layoutY="105.0" prefHeight="27.0" prefWidth="70.0" text="کتابخونه" textAlignment="CENTER" textFill="#11a7d0">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <JFXButton blendMode="HARD_LIGHT" layoutX="586.0" layoutY="23.0" opacity="0.62" style="-fx-background-color: #060675;" text="sign up" textFill="#04a2e1">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </JFXButton>
-      <JFXButton layoutX="496.0" layoutY="26.0" prefHeight="25.0" prefWidth="90.0" text="ثبت نام کنید" textFill="#c9bbbb" />
-      <JFXCheckBox checkedColor="#10d0bd" layoutX="230.0" layoutY="294.0" text="شرایط و ضوابط" textFill="#12c6c9" unCheckedColor="#00e8c5" />
-      <JFXButton layoutX="304.0" layoutY="358.0" style="-fx-background-color: #11BDF2;" text="Log in" textFill="#02191e">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </JFXButton>
-      <ImageView blendMode="EXCLUSION" fitHeight="62.0" fitWidth="48.0" layoutX="171.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/e27c8735da98ec6ccdcf12e258b26475.png" />
-         </image>
-      </ImageView>
-      <ImageView blendMode="HARD_LIGHT" fitHeight="60.0" fitWidth="59.0" layoutX="165.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/password.png" />
-         </image>
-      </ImageView>
-   </children>
-</AnchorPane>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerLoginPage">
+   <center>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="424.0" prefWidth="667.0" style="-fx-background-color: #2D3447;">
+         <children>
+            <JFXPasswordField fx:id="passwordFLD" layoutX="230.0" layoutY="236.0" prefHeight="25.0" prefWidth="238.0" promptText="password">
+               <unFocusColor>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#0f3cd0" />
+                        <Stop color="#11acd7" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </unFocusColor>
+            </JFXPasswordField>
+            <JFXTextField fx:id="usernameFLD" layoutX="230.0" layoutY="173.0" prefHeight="25.0" prefWidth="238.0" promptText="username">
+               <unFocusColor>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#0a35ab" />
+                        <Stop color="#0dcdeb" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </unFocusColor>
+            </JFXTextField>
+            <ImageView blendMode="LIGHTEN" fitHeight="108.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/concept1.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="35.0" layoutY="105.0" prefHeight="27.0" prefWidth="70.0" text="کتابخونه" textAlignment="CENTER" textFill="#11a7d0">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="signupBTN" blendMode="HARD_LIGHT" layoutX="586.0" layoutY="23.0" opacity="0.62" style="-fx-background-color: #060675;" text="sign up" textFill="#04a2e1">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="496.0" layoutY="26.0" prefHeight="25.0" prefWidth="90.0" text="ثبت نام کنید" textFill="#c9bbbb" />
+            <JFXCheckBox fx:id="checkBox" checkedColor="#10d0bd" layoutX="230.0" layoutY="294.0" text="شرایط و ضوابط" textFill="#12c6c9" unCheckedColor="#00e8c5" />
+            <JFXButton fx:id="loginBTN" layoutX="304.0" layoutY="358.0" style="-fx-background-color: #11BDF2;" text="Log in" textFill="#02191e">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <ImageView blendMode="EXCLUSION" fitHeight="62.0" fitWidth="48.0" layoutX="171.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/e27c8735da98ec6ccdcf12e258b26475.png" />
+               </image>
+            </ImageView>
+            <ImageView blendMode="HARD_LIGHT" fitHeight="60.0" fitWidth="59.0" layoutX="165.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/password.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

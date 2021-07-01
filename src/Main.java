@@ -1,17 +1,20 @@
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.jetbrains.annotations.NotNull;
+
 
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../view/LoginPage.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root));
+    public void start(@NotNull Stage primaryStage) throws Exception{
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("view/LoginPage.fxml"));
+
+        loader.load();
+        primaryStage.setScene(new Scene(loader.getRoot()));
         primaryStage.show();
+
     }
 
 
