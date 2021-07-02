@@ -12,7 +12,7 @@ import java.util.ResourceBundle;
 
 
 
-public class ControllerLoginPage {
+public class LoginPageController {
 
     @FXML
     private JFXPasswordField passwordFLD;
