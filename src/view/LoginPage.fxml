@@ -13,12 +13,11 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerLoginPage">
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginPageController">
    <center>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="424.0" prefWidth="667.0" style="-fx-background-color: #2D3447;">
          <children>
-            <JFXPasswordField fx:id="passwordFLD" layoutX="230.0" layoutY="236.0" prefHeight="25.0" prefWidth="238.0" promptText="password">
+            <JFXPasswordField fx:id="passwordFLD" focusColor="#163c86" layoutX="230.0" layoutY="236.0" prefHeight="25.0" prefWidth="238.0" promptText="password" style="-fx-text-inner-color:#21C3FE">
                <unFocusColor>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
@@ -28,7 +27,7 @@
                   </LinearGradient>
                </unFocusColor>
             </JFXPasswordField>
-            <JFXTextField fx:id="usernameFLD" layoutX="230.0" layoutY="173.0" prefHeight="25.0" prefWidth="238.0" promptText="username">
+            <JFXTextField fx:id="usernameFLD" focusColor="#163c86" layoutX="230.0" layoutY="173.0" prefHeight="25.0" prefWidth="238.0" promptText="username" style="-fx-text-inner-color:#21C3FE">
                <unFocusColor>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
