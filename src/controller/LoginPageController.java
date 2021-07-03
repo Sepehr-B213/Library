@@ -7,13 +7,14 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.scene.control.Label;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
+import javafx.stage.Stage;
+import model.Relevant;
+import model.Librarian;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 
-
-public class LoginPageController {
+public class LoginPageController implements Initializable {
 
     @FXML
     private JFXPasswordField passwordFLD;
@@ -31,7 +32,79 @@ public class LoginPageController {
     private JFXButton loginBTN;
 
     @FXML
-    private Label ErrorLBL;
+    private Label errorLBL;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
 
+        loginBTN.setOnAction(e -> checkInfo());
+
+        checkBox.setOnAction(event -> loginBTN.setDisable(!checkBox.isSelected()));
+
+        signupBTN.setOnAction(event -> openSignUpPage());
+
+    }
+
+    public void checkInfo() {
+        if(!usernameFLD.getText().isEmpty() && !passwordFLD.getText().isEmpty()) {
+            if(checkAccountAdmin()) {
+                close();
+                // open AdminMainPage
+            }
+            else if (checkAccountLibrarian()) {
+                close();
+                // open LibrarianMainPage
+            }
+        }
+        else
+            errorLBL.setText(Relevant.loginPageErrors[0]);
+    }
+
+    public boolean checkAccountAdmin () {
+        if(convertInt(usernameFLD.getText()) == Relevant.admin.getId()) {
+            if(passwordFLD.getText().equals(Relevant.admin.getPassword()))
+                return true ;
+            else
+                errorLBL.setText(Relevant.loginPageErrors[2]);
+        }
+        return false ;
+    }
+
+    public  boolean checkAccountLibrarian () {
+        int id = convertInt(usernameFLD.getText());
+
+        if (id != 0) {
+            Librarian librarian = Librarian.search(id);
+            if (librarian == null) {
+                errorLBL.setText(Relevant.loginPageErrors[1]);
+                return false;
+            }
+            else if(passwordFLD.getText().equals(librarian.getPassword()))
+                return true;
+            else {
+                errorLBL.setText(Relevant.loginPageErrors[2]);
+                return false;
+            }
+        }
+        else {
+            return false;
+        }
+    }
+
+    public int convertInt(String str) {
+        try {
+            return Integer.parseInt(str);
+        } catch (Exception ex) {
+            errorLBL.setText(Relevant.loginPageErrors[1]);
+            return 0 ;
+        }
+    }
+
+    public void close() {
+        ((Stage)loginBTN.getScene().getWindow()).close();
+    }
+
+    public void openSignUpPage() {
+
+    }
 }
