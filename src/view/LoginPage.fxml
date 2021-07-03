@@ -69,6 +69,7 @@
                   <Image url="@images/password.png" />
                </image>
             </ImageView>
+            <Label fx:id="ErrorLBL" layoutX="234.0" layoutY="73.0" prefHeight="33.0" prefWidth="196.0" textAlignment="CENTER" textFill="#ff3700" />
          </children>
       </AnchorPane>
    </center>

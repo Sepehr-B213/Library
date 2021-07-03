@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import javafx.scene.control.Label;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
@@ -28,6 +29,9 @@ public class LoginPageController {
 
     @FXML
     private JFXButton loginBTN;
+
+    @FXML
+    private Label ErrorLBL;
 
 
 }
