@@ -52,9 +52,9 @@
                   <Font size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="496.0" layoutY="26.0" prefHeight="25.0" prefWidth="90.0" text="ثبت نام کنید" textFill="#c9bbbb" />
+            <JFXButton layoutX="496.0" layoutY="26.0" text="ثبت نام کنید" textFill="#c9bbbb" />
             <JFXCheckBox fx:id="checkBox" checkedColor="#10d0bd" layoutX="230.0" layoutY="294.0" text="شرایط و ضوابط" textFill="#12c6c9" unCheckedColor="#00e8c5" />
-            <JFXButton fx:id="loginBTN" layoutX="304.0" layoutY="358.0" style="-fx-background-color: #11BDF2;" text="Log in" textFill="#02191e">
+            <JFXButton fx:id="loginBTN" layoutX="304.0" layoutY="358.0" style="-fx-background-color: #11BDF2;" text="Log in" textFill="#02191e" disable="true">
                <font>
                   <Font size="14.0" />
                </font>
@@ -69,7 +69,7 @@
                   <Image url="@images/password.png" />
                </image>
             </ImageView>
-            <Label fx:id="ErrorLBL" layoutX="234.0" layoutY="73.0" prefHeight="33.0" prefWidth="196.0" textAlignment="CENTER" textFill="#ff3700" />
+            <Label fx:id="errorLBL" layoutX="234.0" layoutY="73.0" prefHeight="33.0" prefWidth="196.0" textAlignment="CENTER" textFill="#ff3700" />
          </children>
       </AnchorPane>
    </center>
