@@ -3,6 +3,7 @@ package model;
 import controller.DataBase;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Book {
@@ -139,5 +140,43 @@ public class Book {
         }
 
         DataBase.execution(query);
+    }
+
+    public void lend(int librarian_id) {
+        this.librarian_id = librarian_id;
+        this.isAvailable = false;
+        this.borrowedDate = Date.valueOf(LocalDateTime.now().toLocalDate());
+        this.extended = false;
+        this.update();
+    }
+
+    public void returnBook() {
+        this.librarian_id = 0;
+        this.isAvailable = true;
+        this.borrowedDate = null;
+        this.extended = false;
+        this.update();
+    }
+
+    public boolean extend() {
+        if(extended) {
+            return false;
+        } else {
+            this.extended = true;
+            this.update();
+            return true;
+        }
+    }
+
+    public static void delete(int id) {
+        String query = String.format("delete from book where id = %d", id);
+        DataBase.execution(query);
+    }
+
+    public String toString() {
+        String str = String.format("id: %d, name: %s, author: %s, librarian_id: %d, isAvailable: %b" +
+                        ", borrowedDate: %s, extended: %b",
+                this.id, this.name, this.author, this.librarian_id, this.isAvailable, this.borrowedDate, this.extended);
+        return str;
     }
 }
