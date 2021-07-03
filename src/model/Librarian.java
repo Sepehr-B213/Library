@@ -35,7 +35,7 @@ public class Librarian extends Admin {
     }
 
     public static ArrayList<Librarian> getLibrarians(String condition) {
-        String query = "select * from librarian";
+        String query = "select * from librarian" + condition;
         return DataBase.executeLibrarian(query);
     }
 
@@ -56,6 +56,16 @@ public class Librarian extends Admin {
 
     public void update() {
         String query = String.format("update librarian set password = '%s' where id = %d",this.getPassword(), this.getId());
+        DataBase.execution(query);
+    }
+
+    public void delete() {
+        ArrayList<Book> bookList = Book.search(this.getId());
+        for(Book b : bookList) {
+            b.returnBook();
+        }
+
+        String query = String.format("delete from librarian where id = %d", this.getId());
         DataBase.execution(query);
     }
 
