@@ -1,6 +1,9 @@
 package model;
 
+import controller.DataBase;
+
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class Book {
     private int id;
@@ -80,5 +83,61 @@ public class Book {
 
     public void setExtended(boolean extended) {
         this.extended = extended;
+    }
+
+    public void add() {
+        String query = String.format("insert into book(name,author) values ('%s' , '%s')"
+                ,this.getName(),this.getAuthor());
+        DataBase.execution(query);
+    }
+
+    public static ArrayList<Book> getBooks(String condition) {
+        String query = "select * from Book" + condition;
+        return DataBase.executeBook(query);
+    }
+
+    public static Book searchByName(String name) {
+        String condition = String.format(" where name = '%s'", name);
+        ArrayList<Book> bookList = getBooks(condition);
+        if(bookList.isEmpty()) {
+            return null;
+        } else {
+            return bookList.get(0);
+        }
+    }
+
+    public static ArrayList<Book> search(String author) {
+        String condition = String.format(" where author = '%s'", author);
+        return getBooks(condition);
+    }
+
+    public static ArrayList<Book> search(Date date1, Date date2) {
+        String condition = String.format(" where  borrowedDate >= '%s' and borrowedDate <= '%s'", date1, date2);
+        return getBooks(condition);
+    }
+
+    public static ArrayList<Book> search(int librarian_id) {
+        String condition = String.format(" where librarian_id = %d", librarian_id);
+        return getBooks(condition);
+    }
+
+    public static ArrayList<Book> search(Boolean isAvailable) {
+        String condition = String.format(" where isAvailable = %b", isAvailable);
+        return getBooks(condition);
+    }
+
+    public void update() {
+        String query;
+        if(librarian_id == 0) {
+            query = String.format("update book set librarian_id = null, isAvailable = %b ,"+
+                            "borrowedDate = '%s' , extended = %b where id = %d",
+                    this.isAvailable, this.borrowedDate, this.extended, this.id);
+        } else {
+            query = String.format("update book set librarian_id = %d, isAvailable = %b ,"+
+                            "borrowedDate = '%s' , extended = %b where id = %d",
+                    this.librarian_id, this.isAvailable, this.borrowedDate, this.extended, this.id);
+        }
+
+        DataBase.execution(query);
     }
 }
