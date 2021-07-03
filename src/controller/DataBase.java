@@ -14,7 +14,6 @@ public class DataBase {
     }
 
     public static void builtConnection() {
-
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/library_DB",
                     "admin", "123456@s");
@@ -22,7 +21,6 @@ public class DataBase {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
     }
 
     public static void closeConnection() {
@@ -46,21 +44,50 @@ public class DataBase {
         }
     }
 
-    public static int createLibrarian(Librarian librarian) throws SQLException {
+    public static ArrayList<Book> executeBook(String query) {
         builtConnection();
-        statement.execute
-                (String.format("insert into user(password,firstName,lastName) values "
-                        + "('%s' , '%s' , '%s' )", librarian.getPassword(), librarian.getName(), librarian.getLastName()));
+        ArrayList<Book> bookList = new ArrayList<>();
+
+        try {
+            ResultSet resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                Book book = new Book();
+                book.setId(resultSet.getInt("id"));
+                book.setName(resultSet.getString("name"));
+                book.setAuthor(resultSet.getString("author"));
+                book.setLibrarian_id(resultSet.getInt("librarian_id"));
+                book.setIsAvailable(resultSet.getBoolean("isAvailable"));
+                book.setBorrowedDate(resultSet.getDate("borrowedDate"));
+                book.setExtended(resultSet.getBoolean("extended"));
+                bookList.add(book);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
         closeConnection();
-        return 0;
+        return bookList;
     }
 
-    public static int createBook(Book book) throws SQLException {
+    public static ArrayList<Librarian> executeLibrarian(String query) {
         builtConnection();
-        statement.execute
-                (String.format("insert into book(name,author) values ('%s' , '%s' )"
-                        , book.getName(), book.getAuthor()));
+        ArrayList<Librarian> librarianList = new ArrayList<>();
+
+        try {
+            ResultSet resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                Librarian librarian = new Librarian();
+                librarian.setId(resultSet.getInt("id"));
+                librarian.setPassword(resultSet.getString("password"));
+                librarian.setName(resultSet.getString("name"));
+                librarian.setLastName(resultSet.getString("lastname"));
+                librarianList.add(librarian);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
         closeConnection();
-        return 0;
+        return librarianList;
     }
 }
