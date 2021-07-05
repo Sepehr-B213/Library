@@ -50,7 +50,7 @@ public class DataBase {
             statement.execute(query, Statement.RETURN_GENERATED_KEYS);
             ResultSet resultSet = statement.getGeneratedKeys();
             resultSet.next();
-            int id = resultSet.getInt("id");
+            int id = resultSet.getInt(1);
             closeConnection();
             return id;
         } catch (SQLException throwables) {
