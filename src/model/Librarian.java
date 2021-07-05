@@ -31,7 +31,7 @@ public class Librarian extends Admin {
     public void add() {
         String query = String.format("insert into librarian(password,name,lastName) values ('%s' , '%s' , '%s')",
                 this.getPassword(),this.getName(),this.getLastName());
-        DataBase.execution(query);
+        this.setId(DataBase.idReturnExecution(query));
     }
 
     public static ArrayList<Librarian> getLibrarians(String condition) {
