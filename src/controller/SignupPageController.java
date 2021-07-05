@@ -7,6 +7,11 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.paint.Paint;
+import javafx.stage.Stage;
+import model.Librarian;
+import model.Relevant;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -41,6 +46,41 @@ public class SignupPageController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        checkBox.setOnAction(event -> signupBTN.setDisable(!checkBox.isSelected()));
+
+        signupBTN.setOnAction(event -> signingUp());
+
+        exitBTN.setOnAction(event -> close());
+
+        termsBTN.setOnAction(event -> {});
+    }
+
+    public void signingUp() {
+        if(checkPassword()) {
+            Librarian librarian = new Librarian(0,nameFLD.getText(),passwordFLD.getText(),lastnameFLD.getText()) ;
+            librarian.add();
+            errorLBL.setTextFill(Paint.valueOf("#4be928"));
+            errorLBL.setText(String.format(Relevant.signUpPageErrors[1], librarian.getId()));
+        }
+        else {
+            errorLBL.setTextFill(Paint.valueOf("#ff3700"));
+            errorLBL.setText(Relevant.signUpPageErrors[0]);
+        }
+    }
+
+    public boolean checkPassword(){
+        if(passwordFLD.getText().equals(confirmFLD.getText()))
+            return true ;
+        else
+            return false ;
+    }
+
+    public void close() {
+        LoginPageController.signupPageStage = null;
+        ((Stage)exitBTN.getScene().getWindow()).close();
+    }
+
+    public void openTerms() {
 
     }
 }
