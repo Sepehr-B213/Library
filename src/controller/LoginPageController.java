@@ -4,12 +4,17 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import model.Relevant;
 import model.Librarian;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -41,7 +46,13 @@ public class LoginPageController implements Initializable {
 
         checkBox.setOnAction(event -> loginBTN.setDisable(!checkBox.isSelected()));
 
-        signupBTN.setOnAction(event -> openSignUpPage());
+        signupBTN.setOnAction(event -> {
+            try {
+                openSignUpPage();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
 
     }
 
@@ -104,7 +115,12 @@ public class LoginPageController implements Initializable {
         ((Stage)loginBTN.getScene().getWindow()).close();
     }
 
-    public void openSignUpPage() {
-
+    public void openSignUpPage() throws IOException {
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../view/SignupPage.fxml"));
+        loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(loader.getRoot()));
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.show();
     }
 }
