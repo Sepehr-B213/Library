@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.Relevant;
@@ -20,6 +21,9 @@ import java.util.ResourceBundle;
 
 
 public class LoginPageController implements Initializable {
+    private double x,y;
+
+    static Stage signupPageStage = null;
 
     @FXML
     private JFXPasswordField passwordFLD;
@@ -116,11 +120,22 @@ public class LoginPageController implements Initializable {
     }
 
     public void openSignUpPage() throws IOException {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../view/SignupPage.fxml"));
-        loader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(loader.getRoot()));
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.show();
+        if (signupPageStage == null) {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../view/SignupPage.fxml"));
+            loader.load();
+            signupPageStage = new Stage();
+            signupPageStage.setScene(new Scene(loader.getRoot()));
+            signupPageStage.initStyle(StageStyle.UNDECORATED);
+
+            ((BorderPane) loader.getRoot()).setOnMousePressed(event -> {
+                x = event.getSceneX();
+                y = event.getSceneY();
+            });
+            ((BorderPane) loader.getRoot()).setOnMouseDragged(event -> {
+                signupPageStage.setX(event.getScreenX() - x);
+                signupPageStage.setY(event.getScreenY() - y);
+            });
+            signupPageStage.show();
+        }
     }
 }
