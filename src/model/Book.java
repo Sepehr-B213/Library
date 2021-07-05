@@ -89,7 +89,7 @@ public class Book {
     public void add() {
         String query = String.format("insert into book(name,author) values ('%s' , '%s')"
                 ,this.getName(),this.getAuthor());
-        DataBase.execution(query);
+        this.setId(DataBase.idReturnExecution(query));
     }
 
     public static ArrayList<Book> getBooks(String condition) {
