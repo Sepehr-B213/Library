@@ -44,6 +44,21 @@ public class DataBase {
         }
     }
 
+    public static int idReturnExecution(String query) {
+        builtConnection();
+        try {
+            statement.execute(query, Statement.RETURN_GENERATED_KEYS);
+            ResultSet resultSet = statement.getGeneratedKeys();
+            resultSet.next();
+            int id = resultSet.getInt("id");
+            closeConnection();
+            return id;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            return 0;
+        }
+    }
+
     public static ArrayList<Book> executeBook(String query) {
         builtConnection();
         ArrayList<Book> bookList = new ArrayList<>();
