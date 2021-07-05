@@ -90,7 +90,7 @@
                         <Image url="@images/password.png" />
                     </image>
                 </ImageView>
-                <Label fx:id="errorLBL" layoutX="170.0" layoutY="15.0" prefHeight="33.0" prefWidth="200.0" textAlignment="CENTER" textFill="#ff3700" />
+                <Label fx:id="errorLBL" layoutX="100.0" layoutY="15.0" prefHeight="33.0" prefWidth="300.0" textAlignment="CENTER" textFill="#ff3700" />
             </children>
         </AnchorPane>
     </center>
