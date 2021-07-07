@@ -20,10 +20,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class LoginPageController implements Initializable {
-    private double x,y;
-
-    static Stage signupPageStage = null;
+public class LoginPageController extends MainController implements Initializable {
 
     @FXML
     private JFXPasswordField passwordFLD;
@@ -52,7 +49,7 @@ public class LoginPageController implements Initializable {
 
         signupBTN.setOnAction(event -> {
             try {
-                openSignUpPage();
+                show(load("../view/SignupPage.fxml"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -63,11 +60,15 @@ public class LoginPageController implements Initializable {
     public void checkInfo() {
         if(!usernameFLD.getText().isEmpty() && !passwordFLD.getText().isEmpty()) {
             if(checkAccountAdmin()) {
-                close();
-                // open AdminMainPage
+                close(loginBTN);
+                try {
+                    show(load("../view/AdminDashboardPage.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
             else if (checkAccountLibrarian()) {
-                close();
+                close(loginBTN);
                 // open LibrarianMainPage
             }
         }
@@ -112,30 +113,6 @@ public class LoginPageController implements Initializable {
         } catch (Exception ex) {
             errorLBL.setText(Relevant.loginPageErrors[1]);
             return 0 ;
-        }
-    }
-
-    public void close() {
-        ((Stage)loginBTN.getScene().getWindow()).close();
-    }
-
-    public void openSignUpPage() throws IOException {
-        if (signupPageStage == null) {
-            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../view/SignupPage.fxml"));
-            loader.load();
-            signupPageStage = new Stage();
-            signupPageStage.setScene(new Scene(loader.getRoot()));
-            signupPageStage.initStyle(StageStyle.UNDECORATED);
-
-            ((BorderPane) loader.getRoot()).setOnMousePressed(event -> {
-                x = event.getSceneX();
-                y = event.getSceneY();
-            });
-            ((BorderPane) loader.getRoot()).setOnMouseDragged(event -> {
-                signupPageStage.setX(event.getScreenX() - x);
-                signupPageStage.setY(event.getScreenY() - y);
-            });
-            signupPageStage.show();
         }
     }
 }

@@ -1,14 +1,16 @@
 package controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class AdminDashboardPageController {
+public class AdminDashboardPageController extends MainController implements Initializable {
 
     @FXML
     private Button homeBTN;
@@ -47,7 +49,7 @@ public class AdminDashboardPageController {
     private TextField searchBTN;
 
     @FXML
-    private VBox homechldrenPNL;
+    private VBox homeChildrenPNL;
 
     @FXML
     private ImageView minBTN;
@@ -55,8 +57,8 @@ public class AdminDashboardPageController {
     @FXML
     private ImageView closeBTN;
 
-    @FXML
-    void handleClicks(ActionEvent event) {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
 
     }
 
