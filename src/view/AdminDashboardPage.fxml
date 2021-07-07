@@ -270,7 +270,7 @@
                                 </HBox>
                                 <ScrollPane layoutX="14.0" layoutY="232.0" prefHeight="320.0" prefWidth="746.0">
                                     <content>
-                                        <VBox fx:id="homechldrenPNL" prefHeight="318.0" prefWidth="744.0" spacing="5.0" style="-fx-background-color: #02030A; -fx-border-color: #000000;">
+                                        <VBox fx:id="homeChildrenPNL" prefHeight="318.0" prefWidth="744.0" spacing="5.0" style="-fx-background-color: #02030A; -fx-border-color: #000000;">
                                             <padding>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                             </padding>

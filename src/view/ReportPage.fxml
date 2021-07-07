@@ -23,7 +23,7 @@
                     <children>
                         <ScrollPane prefHeight="415.0" prefWidth="793.0">
                             <content>
-                                <VBox fx:id="reportchldrenPNL" prefHeight="458.0" prefWidth="792.0" spacing="5.0" style="-fx-background-color: #02030A; -fx-border-color: #000000;">
+                                <VBox fx:id="reportChildrenPNL" prefHeight="458.0" prefWidth="792.0" spacing="5.0" style="-fx-background-color: #02030A; -fx-border-color: #000000;">
                                     <padding>
                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                     </padding>
@@ -32,7 +32,7 @@
                         </ScrollPane>
                     </children>
                 </VBox>
-                <JFXButton fx:id="datesearchBTN" layoutX="536.0" layoutY="33.0" prefHeight="19.0" prefWidth="40.0" text=".">
+                <JFXButton fx:id="dateSearchBTN" layoutX="536.0" layoutY="33.0" prefHeight="19.0" prefWidth="40.0" text=".">
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -42,7 +42,7 @@
                     </graphic>
                 </JFXButton>
                 <JFXTextField fx:id="bookFLD" layoutX="68.0" layoutY="29.0" promptText="کتاب" />
-                <JFXButton fx:id="booksearchBTN" layoutX="25.0" layoutY="33.0" text=".">
+                <JFXButton fx:id="bookSearchBTN" layoutX="25.0" layoutY="33.0" text=".">
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -52,7 +52,7 @@
                     </graphic>
                 </JFXButton>
                 <JFXTextField fx:id="authorFLD" layoutX="328.0" layoutY="29.0" promptText="نویسنده" />
-                <JFXButton fx:id="searchauthorBTN" layoutX="285.0" layoutY="33.0" text=".">
+                <JFXButton fx:id="searchAuthorBTN" layoutX="285.0" layoutY="33.0" text=".">
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                             <image>
