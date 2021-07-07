@@ -8,14 +8,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Paint;
-import javafx.stage.Stage;
 import model.Librarian;
 import model.Relevant;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SignupPageController implements Initializable {
+public class SignupPageController extends MainController implements Initializable {
 
     @FXML
     private JFXTextField nameFLD;
@@ -50,7 +49,10 @@ public class SignupPageController implements Initializable {
 
         signupBTN.setOnAction(event -> signingUp());
 
-        exitBTN.setOnAction(event -> close());
+        exitBTN.setOnAction(event -> {
+            LoginPageController.stage = null;
+            close(exitBTN);
+        });
 
         termsBTN.setOnAction(event -> {});
     }
@@ -73,11 +75,6 @@ public class SignupPageController implements Initializable {
             return true ;
         else
             return false ;
-    }
-
-    public void close() {
-        LoginPageController.signupPageStage = null;
-        ((Stage)exitBTN.getScene().getWindow()).close();
     }
 
     public void openTerms() {
