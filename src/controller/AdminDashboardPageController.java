@@ -1,10 +1,10 @@
 package controller;
 
+import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXToggleButton;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import java.net.URL;
@@ -46,16 +46,36 @@ public class AdminDashboardPageController extends MainController implements Init
     private Pane homePNL;
 
     @FXML
-    private TextField searchBTN;
-
-    @FXML
     private VBox homeChildrenPNL;
 
     @FXML
-    private ImageView minBTN;
+    private Button deleteBookBTN;
 
     @FXML
-    private ImageView closeBTN;
+    private Button addBookBTN;
+
+    @FXML
+    private JFXTextField homeSearchFLD;
+
+    @FXML
+    private Button homeSearchBTN;
+
+    @FXML
+    private JFXToggleButton bookTBTN;
+
+    @FXML
+    private JFXToggleButton authorTBTN;
+
+    @FXML
+    private JFXToggleButton idTBTN;
+
+    @FXML
+    private Button minBTN;
+
+    @FXML
+    private Button closeBTN;
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
