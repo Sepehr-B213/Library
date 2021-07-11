@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddLibrarianPageController">
+   <center>
+      <AnchorPane prefHeight="412.0" prefWidth="335.0" style="-fx-background-color: #000000;">
+         <children>
+            <Label fx:id="errorLBL" alignment="CENTER" layoutX="82.0" layoutY="322.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="163.0" textFill="#506bd7">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="102.0" fitWidth="128.0" layoutX="112.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/person-male.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="librarianAcceptBTN" layoutX="123.0" layoutY="374.0" style="-fx-border-color: #04f49f;" text="Add" textFill="#04f49f" />
+            <JFXButton fx:id="exitBTN" layoutX="177.0" layoutY="374.0" style="-fx-border-color: #03a0f5;" text="Exit" textFill="#03a0f5" />
+            <JFXTextField fx:id="librarianNameFLD" layoutX="77.0" layoutY="136.0" prefHeight="25.0" prefWidth="172.0" promptText="Name">
+               <focusColor>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#003df5" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </focusColor>
+               <unFocusColor>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#06daff" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </unFocusColor>
+            </JFXTextField>
+            <JFXTextField fx:id="librarianLastnameFLD" layoutX="77.0" layoutY="181.0" prefHeight="25.0" prefWidth="172.0" promptText="Lastname">
+               <unFocusColor>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#06daff" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </unFocusColor>
+               <focusColor>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#003df5" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </focusColor>
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="librarianPassFLD" layoutX="77.0" layoutY="229.0" prefHeight="25.0" prefWidth="172.0" promptText="Password">
+               <unFocusColor>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#06daff" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </unFocusColor>
+               <focusColor>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#003df5" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </focusColor>
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="librarianRepeatpassFLD" layoutX="78.0" layoutY="277.0" prefHeight="25.0" prefWidth="172.0" promptText="Repeat Password">
+               <unFocusColor>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#06daff" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </unFocusColor>
+               <focusColor>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#003df5" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </focusColor>
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
