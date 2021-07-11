@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -51,9 +52,22 @@ public class MainController {
 
     public void minimize(Node node) { ((Stage)node.getScene().getWindow()).setIconified(true); }
 
+    public void clearText(Node... nodes) {
+        for(Node node : nodes) {
+            boolean isNotWorked = false;
+            try {
+                ((Label) node).setText("");
+            } catch (Exception e) {
+                isNotWorked = true;
+            }
+            if (isNotWorked) {
+                try {
+                    ((TextField) node).clear();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
 
-    public void clearField(Node... nodes) {
-        for(Node node : nodes)
-            ((TextField)node).clear();
     }
 }
