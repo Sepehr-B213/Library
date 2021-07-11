@@ -3,6 +3,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.Relevant;
 
 
 public class Main extends Application {
@@ -12,6 +13,8 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("view/LoginPage.fxml"));
 
         loader.load();
+
+        Relevant.loginStage = primaryStage;
         primaryStage.setScene(new Scene(loader.getRoot()));
         primaryStage.show();
 
