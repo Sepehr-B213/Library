@@ -1,5 +1,6 @@
 package controller;
 
+import model.Admin;
 import model.Book;
 import model.Librarian;
 
@@ -104,5 +105,26 @@ public class DataBase {
 
         closeConnection();
         return librarianList;
+    }
+
+    public static ArrayList<Admin> executeAdmin(String query) {
+        builtConnection();
+        ArrayList<Admin> adminList = new ArrayList<>();
+
+        try {
+            ResultSet resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                Admin admin = new Admin();
+                admin.setId(resultSet.getInt("id"));
+                admin.setPassword(resultSet.getString("password"));
+                admin.setName(resultSet.getString("name"));
+                adminList.add(admin);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        closeConnection();
+        return adminList;
     }
 }
