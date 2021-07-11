@@ -5,7 +5,7 @@ import controller.DataBase;
 import java.util.ArrayList;
 
 
-public class Librarian extends Admin {
+public class Librarian extends User {
     private String lastName;
 
     public Librarian() {
@@ -55,7 +55,7 @@ public class Librarian extends Admin {
     }
 
     public void update() {
-        String query = String.format("update librarian set password = '%s' where id = %d",this.getPassword(), this.getId());
+        String query = String.format("update librarian set password = '%s', name = '%s', lastname = '%s' where id = %d",this.getPassword(), this.getName(), this.getLastName(), this.getId());
         DataBase.execution(query);
     }
 

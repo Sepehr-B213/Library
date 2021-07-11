@@ -1,7 +1,18 @@
 package model;
 
+import javafx.stage.Stage;
+
 public class Relevant {
+
+    public static Stage loginStage = null;
+
+    public static User user;
+
     public static Admin admin = new Admin(9999, "Admin", "aqws1234");
+
+    public static Librarian librarian;
+
+    public static Book book;
 
     public static String[] loginPageErrors = {
             "فیلد های خالی را پر کنید",
