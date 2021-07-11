@@ -1,42 +1,58 @@
 package model;
 
-public class Admin {
+import controller.DataBase;
 
-    private int id ;
-    private String name;
-    private String password ;
+import java.util.ArrayList;
+
+public class Admin extends User{
 
     public Admin() {
-        this(0, "", "");
+        super();
     }
 
     public Admin(int id, String name, String password) {
-        this.setId(id);
-        this.setName(name);
-        this.setPassword(password);
+        super(id, name, password);
     }
 
-    public int getId() {
-        return id;
+    public void add() {
+        String query = String.format("insert into admin(password,name) values ('%s' , '%s')",
+                this.getPassword(),this.getName());
+        this.setId(DataBase.idReturnExecution(query));
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public static ArrayList<Admin> getAdmins(String condition) {
+        String query = "select * from admin" + condition;
+        return DataBase.executeAdmin(query);
     }
 
-    public String getName() {
-        return name;
+    public static Admin search(int id) {
+        String condition = String.format(" where id = %d", id);
+        ArrayList<Admin> adminList = getAdmins(condition);
+        if(adminList.isEmpty()) {
+            return null;
+        } else {
+            return adminList.get(0);
+        }
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public static ArrayList<Admin> search(String name) {
+        String condition = String.format(" where name = '%s'", name);
+        return getAdmins(condition);
     }
 
-    public String getPassword() {
-        return password;
+    public void update() {
+        String query = String.format("update admin set password = '%s', name = '%s' where id = %d",this.getPassword(), getName(), this.getId());
+        DataBase.execution(query);
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void delete() {
+        String query = String.format("delete from admin where id = %d", this.getId());
+        DataBase.execution(query);
+    }
+
+    public String toString() {
+        String str = String.format("id: %d, name: %s, password: %s",
+                this.getId(), this.getName(), this.getPassword());
+        return str;
     }
 }
