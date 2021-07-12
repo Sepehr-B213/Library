@@ -154,7 +154,7 @@
                         <Pane fx:id="settingPNL" prefHeight="200.0" prefWidth="200.0" />
                         <Pane fx:id="reportPNL" prefHeight="200.0" prefWidth="200.0" />
                         <Pane fx:id="userPNL" prefHeight="200.0" prefWidth="200.0" />
-                        <Pane fx:id="homePNL" prefHeight="554.0" prefWidth="793.0" style="-fx-background-color: #000000;" />
+                        <Pane fx:id="homePNL" prefHeight="200.0" prefWidth="200.0" />
                     </children>
                 </StackPane>
             </children>

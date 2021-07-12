@@ -94,11 +94,21 @@ public class Book {
 
     public static ArrayList<Book> getBooks(String condition) {
         String query = "select * from Book" + condition;
-        return DataBase.executeBook(query);
+        return DataBase.getBookList(query);
     }
 
     public static Book searchByName(String name) {
         String condition = String.format(" where name = '%s'", name);
+        ArrayList<Book> bookList = getBooks(condition);
+        if(bookList.isEmpty()) {
+            return null;
+        } else {
+            return bookList.get(0);
+        }
+    }
+
+    public static Book searchById(int id) {
+        String condition = String.format(" where id = '%d'", id);
         ArrayList<Book> bookList = getBooks(condition);
         if(bookList.isEmpty()) {
             return null;

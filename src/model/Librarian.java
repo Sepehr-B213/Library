@@ -36,7 +36,7 @@ public class Librarian extends User {
 
     public static ArrayList<Librarian> getLibrarians(String condition) {
         String query = "select * from librarian" + condition;
-        return DataBase.executeLibrarian(query);
+        return DataBase.getLibrarianList(query);
     }
 
     public static Librarian search(int id) {
