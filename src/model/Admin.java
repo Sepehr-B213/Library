@@ -22,7 +22,7 @@ public class Admin extends User{
 
     public static ArrayList<Admin> getAdmins(String condition) {
         String query = "select * from admin" + condition;
-        return DataBase.executeAdmin(query);
+        return DataBase.getAdminList(query);
     }
 
     public static Admin search(int id) {

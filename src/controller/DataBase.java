@@ -60,7 +60,7 @@ public class DataBase {
         }
     }
 
-    public static ArrayList<Book> executeBook(String query) {
+    public static ArrayList<Book> getBookList(String query) {
         builtConnection();
         ArrayList<Book> bookList = new ArrayList<>();
 
@@ -85,7 +85,7 @@ public class DataBase {
         return bookList;
     }
 
-    public static ArrayList<Librarian> executeLibrarian(String query) {
+    public static ArrayList<Librarian> getLibrarianList(String query) {
         builtConnection();
         ArrayList<Librarian> librarianList = new ArrayList<>();
 
@@ -107,7 +107,7 @@ public class DataBase {
         return librarianList;
     }
 
-    public static ArrayList<Admin> executeAdmin(String query) {
+    public static ArrayList<Admin> getAdminList(String query) {
         builtConnection();
         ArrayList<Admin> adminList = new ArrayList<>();
 
