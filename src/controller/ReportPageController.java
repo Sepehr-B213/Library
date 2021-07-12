@@ -43,6 +43,9 @@ public class ReportPageController extends MainController implements Initializabl
     @FXML
     private Button dateSearchBTN1;
 
+    @FXML
+    private Button extensionBTN;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 

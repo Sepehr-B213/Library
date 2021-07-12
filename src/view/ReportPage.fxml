@@ -48,39 +48,33 @@
                      </stops>
                   </LinearGradient>
                </unFocusColor></JFXTextField>
-                <HBox layoutX="4.0" layoutY="176.0" prefHeight="55.0" prefWidth="786.0">
+                <HBox layoutX="160.0" layoutY="176.0" prefHeight="55.0" prefWidth="599.0">
                     <children>
-                        <Label alignment="BASELINE_RIGHT" prefHeight="55.0" prefWidth="287.0" text="کتاب" textAlignment="CENTER" textFill="#096ddb" textOverrun="CENTER_WORD_ELLIPSIS">
-                            <padding>
-                                <Insets right="100.0" />
-                            </padding>
+                        <Label alignment="CENTER" prefHeight="55.0" prefWidth="126.0" text="کتاب" textAlignment="CENTER" textFill="#096ddb" textOverrun="CENTER_WORD_ELLIPSIS">
                             <font>
                                 <Font name="System Italic" size="14.0" />
                             </font>
                         </Label>
                         <Label alignment="BASELINE_CENTER" prefHeight="55.0" prefWidth="189.0" text="نویسنده" textFill="#096ddb">
                             <padding>
-                                <Insets right="40.0" />
+                                <Insets left="40.0" right="40.0" />
                             </padding>
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Label>
-                        <Label alignment="BASELINE_CENTER" prefHeight="55.0" prefWidth="152.0" text="شماره" textFill="#096ddb">
-                            <padding>
-                                <Insets right="40.0" />
-                            </padding>
+                        <Label alignment="BASELINE_CENTER" prefHeight="55.0" prefWidth="195.0" text="شماره" textFill="#096ddb">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Label>
                         <Label alignment="BASELINE_CENTER" prefHeight="55.0" prefWidth="152.0" text="تاریخ" textFill="#096ddb">
-                            <padding>
-                                <Insets right="40.0" />
-                            </padding>
                             <font>
                                 <Font size="14.0" />
                             </font>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
                         </Label>
                     </children>
                 </HBox>
@@ -99,7 +93,7 @@
                   </LinearGradient>
                </defaultColor>
             </JFXDatePicker>
-            <JFXCheckBox fx:id="reportCHB" checkedColor="#00d9ff" layoutX="693.0" layoutY="158.0" nodeOrientation="RIGHT_TO_LEFT" text="توضیحات">
+            <JFXCheckBox fx:id="reportCHB" checkedColor="#00d9ff" layoutX="694.0" layoutY="146.0" nodeOrientation="RIGHT_TO_LEFT" text="توضیحات">
                <unCheckedColor>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
@@ -170,6 +164,20 @@
                      </stops>
                   </LinearGradient>
                </textFill>
+            </Label>
+            <Button fx:id="extensionBTN" layoutX="21.0" layoutY="178.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="56.0" style="-fx-background-color: #000000;">
+               <graphic>
+                  <ImageView fitHeight="37.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/add_list_50px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label layoutX="77.0" layoutY="195.0" prefHeight="17.0" prefWidth="45.0" text="تمدید" textFill="#76e5f8">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
             </Label>
             </children>
         </AnchorPane>

@@ -14,7 +14,6 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LibrarianProfilePageController">
    <center>
       <AnchorPane prefHeight="554.0" prefWidth="793.0" style="-fx-background-color: #000000;">
@@ -48,7 +47,7 @@
                <graphic>
                   <ImageView fitHeight="42.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../Desktop/borrow_book_80px.png" />
+                        <Image url="@images/borrow_book_80px.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -57,8 +56,8 @@
                <textFill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
-                        <Stop color="#0088ff" />
-                        <Stop color="#cd0f0f" offset="1.0" />
+                        <Stop color="#0066ff" />
+                        <Stop color="RED" offset="1.0" />
                      </stops>
                   </LinearGradient>
                </textFill>
