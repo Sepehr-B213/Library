@@ -4,9 +4,11 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.stage.Stage;
 import model.Relevant;
 import model.Librarian;
 
@@ -16,7 +18,6 @@ import java.util.ResourceBundle;
 
 
 public class LoginPageController extends MainController implements Initializable {
-
     @FXML
     private JFXPasswordField passwordFLD;
 
@@ -27,29 +28,37 @@ public class LoginPageController extends MainController implements Initializable
     private JFXButton signupBTN;
 
     @FXML
-    private JFXCheckBox checkBox;
-
-    @FXML
     private JFXButton loginBTN;
 
     @FXML
     private Label errorLBL;
+
+    @FXML
+    private Button closeBTN;
+
+    @FXML
+    private Button minBTN;
+
+    static Stage stage = null;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         loginBTN.setOnAction(e -> checkInfo());
 
-        checkBox.setOnAction(event -> loginBTN.setDisable(!checkBox.isSelected()));
-
         signupBTN.setOnAction(event -> {
-            try {
-                show(load("../view/SignupPage.fxml"));
-            } catch (IOException e) {
-                e.printStackTrace();
+            if(stage == null) {
+                try {
+                    stage = show(new Stage(), load("../view/SignupPage.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
+        closeBTN.setOnAction(event -> close(closeBTN));
+
+        minBTN.setOnAction(event -> minimize(minBTN));
     }
 
     public void checkInfo() {
@@ -67,10 +76,9 @@ public class LoginPageController extends MainController implements Initializable
             if (passwordFLD.getText().equals(Relevant.admin.getPassword())) {
                 stage = null;
                 clearText(errorLBL, usernameFLD, passwordFLD);
-                checkBox.setSelected(false);
                 close(loginBTN);
                 try {
-                    show(load("../view/AdminDashboardPage.fxml"));
+                    stage = show(new Stage(), load("../view/AdminDashboardPage.fxml"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

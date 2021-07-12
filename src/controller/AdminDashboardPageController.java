@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import model.Book;
 import model.Relevant;
 import java.io.IOException;
@@ -84,22 +85,33 @@ public class AdminDashboardPageController extends MainController implements Init
     @FXML
     private Button closeBTN;
 
-    static int selectedRaw;
+    static Stage stage = null;
+
+    static int selectedRaw = -1;
 
     static ArrayList<HBox> hBoxes = new ArrayList<>();
 
+    static ArrayList<Book> books = new ArrayList<>();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        user();
+        books = Book.getBooks("");
+        rawCreator();
 
-        rawCreator(Book.getBooks(""));
 
         homeBTN.setOnAction(event -> {
             reportPNL.getChildren().removeAll();
             homePNL.toFront();
         });
 
-        usersBTN.setOnAction(event -> userPNL.toFront());
+        usersBTN.setOnAction(event -> {
+            try {
+                userPNL.getChildren().add(load("../view/LibrarianPage.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            userPNL.toFront();
+        });
 
         reportBTN.setOnAction(event -> {
             try {
@@ -119,11 +131,23 @@ public class AdminDashboardPageController extends MainController implements Init
 
         deleteBookBTN.setOnAction(event -> {
             if(selectedRaw >= 0) {
-                int bookId = getRaw((HBox) homeChildrenPNL.getChildren().get(selectedRaw)).getId();
-                Book.delete(bookId);
+                int bookId = getRaw(hBoxes.get(selectedRaw)).getId();
+                //Book.delete(bookId);
+                books.remove(selectedRaw);
                 homeChildrenPNL.getChildren().removeAll(hBoxes);
-                rawCreator(Book.getBooks(""));
+                if(books != null)
+                    rawCreator();
                 selectedRaw = -1;
+            }
+        });
+
+        addBookBTN.setOnAction(event -> {
+            if(stage == null) {
+                try {
+                    stage = show(new Stage(), load("../view/AddBookPage.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -139,6 +163,10 @@ public class AdminDashboardPageController extends MainController implements Init
             selectToggles(idTBTN, bookTBTN, authorTBTN);
         });
 
+        homeSearchBTN.setOnAction(event -> {
+
+        });
+
         closeBTN.setOnAction(event -> close(closeBTN));
 
         minBTN.setOnAction(event -> minimize(minBTN));
@@ -149,20 +177,18 @@ public class AdminDashboardPageController extends MainController implements Init
         menuBar.getChildren().removeAll(usersBTN, reportBTN);
     }
 
-    public void rawCreator(ArrayList<Book> books) {
-        ArrayList<HBox> hBoxes1 = new ArrayList<>();
+    public void rawCreator() {
         int i = 0;
         for(Book book : books) {
             try {
-                hBoxes1.add((HBox) load("../view/BookTRaw.fxml"));
-                setRaw(hBoxes1.get(i), books.get(i));
-                homeChildrenPNL.getChildren().add(hBoxes1.get(i));
+                hBoxes.add((HBox) load("../view/BookTRaw.fxml"));
+                setRaw(hBoxes.get(i), books.get(i));
+                homeChildrenPNL.getChildren().add(hBoxes.get(i));
                 i++;
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        hBoxes = hBoxes1;
         rawsSetEvent();
     }
 
@@ -208,5 +234,30 @@ public class AdminDashboardPageController extends MainController implements Init
         }
         else
             homeSearchBTN.setDisable(true);
+    }
+
+    public ArrayList<Book> searchBook(String combo) {
+        switch(combo) {
+            case "عنوان" : ArrayList<Book> bookList1 = new ArrayList<>();
+                bookList1.add(Book.searchByName(homeSearchFLD.getText()));
+                return bookList1;
+
+            case "شماره" : int id = convertInt(homeSearchFLD.getText());
+                ArrayList<Book> bookList2 = new ArrayList<>();
+                bookList2.add(Book.searchById(id));
+                return bookList2;
+
+            case "نویسنده" : return Book.search(homeSearchFLD.getText());
+
+            default: return null;
+        }
+    }
+
+    public int convertInt(String str) {
+        try {
+            return Integer.parseInt(str);
+        } catch (Exception ex) {
+            return 0 ;
+        }
     }
 }

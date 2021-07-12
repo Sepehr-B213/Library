@@ -13,6 +13,9 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
 <BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginPageController">
    <center>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="424.0" prefWidth="667.0" style="-fx-background-color: #2D3447;">
@@ -53,8 +56,7 @@
                </font>
             </JFXButton>
             <JFXButton layoutX="496.0" layoutY="26.0" text="ثبت نام کنید" textFill="#c9bbbb" />
-            <JFXCheckBox fx:id="checkBox" checkedColor="#10d0bd" layoutX="230.0" layoutY="294.0" text="شرایط و ضوابط" textFill="#12c6c9" unCheckedColor="#00e8c5" />
-            <JFXButton fx:id="loginBTN" layoutX="304.0" layoutY="358.0" style="-fx-background-color: #11BDF2;" text="Log in" textFill="#02191e" disable="true">
+            <JFXButton fx:id="loginBTN" layoutX="304.0" layoutY="358.0" style="-fx-background-color: #11BDF2;" text="Log in" textFill="#02191e" >
                <font>
                   <Font size="14.0" />
                </font>
@@ -73,4 +75,28 @@
          </children>
       </AnchorPane>
    </center>
+   <top>
+      <HBox alignment="TOP_RIGHT" prefHeight="10.0" prefWidth="667.0" style="-fx-background-color: #2D3447;">
+         <children>
+            <Button fx:id="minBTN" mnemonicParsing="false" prefHeight="0.0" prefWidth="19.0" style="-fx-background-color: #2D3447;">
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/icons8-macos-minimize-30.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="closeBTN" mnemonicParsing="false" prefHeight="11.0" prefWidth="27.0" style="-fx-background-color: #2D3447;">
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/icons8-macos-close-30.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+   </top>
 </BorderPane>

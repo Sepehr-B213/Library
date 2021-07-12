@@ -15,8 +15,6 @@ public class MainController {
 
     private double x,y;
 
-    static Stage stage = null;
-
     public Parent load(String address) throws IOException {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource(address));
@@ -28,22 +26,20 @@ public class MainController {
         }
     }
 
-    public void show(Parent parent) {
-        if (stage == null) {
-            stage = new Stage();
-            stage.setScene(new Scene(parent));
-            stage.initStyle(StageStyle.UNDECORATED);
+    public Stage show(Stage stage, Parent parent) {
+        stage.setScene(new Scene(parent));
+        stage.initStyle(StageStyle.UNDECORATED);
 
-            parent.setOnMousePressed(event -> {
-                x = event.getSceneX();
-                y = event.getSceneY();
-            });
-            parent.setOnMouseDragged(event -> {
-                stage.setX(event.getScreenX() - x);
-                stage.setY(event.getScreenY() - y);
-            });
-            stage.show();
-        }
+        parent.setOnMousePressed(event -> {
+            x = event.getSceneX();
+            y = event.getSceneY();
+        });
+        parent.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - x);
+            stage.setY(event.getScreenY() - y);
+        });
+        stage.show();
+        return stage;
     }
 
     public void close(Node node) {
