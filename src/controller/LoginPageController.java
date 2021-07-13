@@ -77,6 +77,7 @@ public class LoginPageController extends MainController implements Initializable
                 stage = null;
                 clearText(errorLBL, usernameFLD, passwordFLD);
                 close(loginBTN);
+                Relevant.user = Relevant.admin;
                 try {
                     stage = show(new Stage(), load("../view/AdminDashboardPage.fxml"));
                 } catch (IOException e) {
@@ -101,7 +102,12 @@ public class LoginPageController extends MainController implements Initializable
             stage = null;
             clearText(errorLBL, usernameFLD, passwordFLD);
             close(loginBTN);
-            // open LibrarianMainPage
+            Relevant.user = librarian;
+            try {
+                stage = show(new Stage(), load("../view/AdminDashboardPage.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         else {
             clearText(passwordFLD);
