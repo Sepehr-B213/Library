@@ -43,6 +43,9 @@ public class HomePageController extends MainController implements Initializable 
     @FXML
     private JFXCheckBox homeCHB;
 
+    @FXML
+    private Button borrowBookBTN;
+
     static Stage stage = null;
 
     static int selectedRaw = -1;
