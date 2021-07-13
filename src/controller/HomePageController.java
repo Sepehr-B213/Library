@@ -117,6 +117,25 @@ public class HomePageController extends MainController implements Initializable 
                     rawCreator(books);
             }
         });
+
+        borrowBookBTN.setOnAction(event -> {
+            if(selectedRaw >= 0) {
+                int bookId = getRaw(hBoxes.get(selectedRaw)).getId();
+                Book book = Book.searchById(bookId);
+                if(book.getIsAvailable())
+                    book.lend(Relevant.user.getId());
+                selectedRaw = -1;
+                homeChildrenPNL.getChildren().removeAll(hBoxes);
+                if (homeCHB.isSelected()) {
+                    if (isAvailableBooks != null)
+                        rawCreator(isAvailableBooks);
+                }
+                else {
+                    if (books != null)
+                        rawCreator(books);
+                }
+            }
+        });
     }
 
     public void rawCreator(ArrayList<Book> bookArrayList) {
@@ -223,5 +242,7 @@ public class HomePageController extends MainController implements Initializable 
     public void access() {
         if(Relevant.user instanceof Librarian)
             deleteBookBTN.setVisible(false);
+        else
+            borrowBookBTN.setVisible(false);
     }
 }

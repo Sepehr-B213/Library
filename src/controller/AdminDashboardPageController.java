@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import model.Admin;
 import model.Librarian;
 import model.Relevant;
 import java.io.IOException;
@@ -136,7 +137,7 @@ public class AdminDashboardPageController extends MainController implements Init
     public void access() {
         if(Relevant.user instanceof Librarian)
             menuBar.getChildren().removeAll(usersBTN, reportBTN);
-        else
+        else if(Relevant.user instanceof Admin)
             menuBar.getChildren().removeAll(profileBTN);
     }
 }
