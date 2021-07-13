@@ -36,6 +36,9 @@ public class AdminDashboardPageController extends MainController implements Init
     private Button settingsBTN;
 
     @FXML
+    private Button profileBTN;
+
+    @FXML
     private Button logoutBTN;
 
     @FXML
@@ -49,6 +52,9 @@ public class AdminDashboardPageController extends MainController implements Init
 
     @FXML
     private Pane homePNL;
+
+    @FXML
+    private Pane profilePNL;
 
     @FXML
     private Button minBTN;
