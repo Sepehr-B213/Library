@@ -58,23 +58,28 @@ public class SignupPageController extends MainController implements Initializabl
     }
 
     public void signingUp() {
-        if(checkPassword()) {
-            Librarian librarian = new Librarian(0,nameFLD.getText(),passwordFLD.getText(),lastnameFLD.getText()) ;
-            librarian.add();
-            errorLBL.setTextFill(Paint.valueOf("#4be928"));
-            errorLBL.setText(String.format(Relevant.signUpPageErrors[1], librarian.getId()));
-        }
-        else {
+        if(nameFLD.getText().isEmpty() || lastnameFLD.getText().isEmpty() || passwordFLD.getText().isEmpty() || confirmFLD.getText().isEmpty()){
             errorLBL.setTextFill(Paint.valueOf("#ff3700"));
             errorLBL.setText(Relevant.signUpPageErrors[0]);
         }
+        else {
+            if (checkPassword()) {
+                Librarian librarian = new Librarian(0, nameFLD.getText(), passwordFLD.getText(), lastnameFLD.getText());
+                librarian.add();
+                errorLBL.setTextFill(Paint.valueOf("#4be928"));
+                errorLBL.setText(String.format(Relevant.signUpPageErrors[2], librarian.getId()));
+                clearText(nameFLD, lastnameFLD, passwordFLD, confirmFLD);
+            }
+            else {
+                errorLBL.setTextFill(Paint.valueOf("#ff3700"));
+                errorLBL.setText(Relevant.signUpPageErrors[1]);
+            }
+        }
+
     }
 
     public boolean checkPassword(){
-        if(passwordFLD.getText().equals(confirmFLD.getText()))
-            return true ;
-        else
-            return false ;
+        return passwordFLD.getText().equals(confirmFLD.getText());
     }
 
     public void openTerms() {
