@@ -59,13 +59,13 @@ public class Librarian extends User {
         DataBase.execution(query);
     }
 
-    public void delete() {
-        ArrayList<Book> bookList = Book.search(this.getId());
+    public static void delete(int id) {
+        ArrayList<Book> bookList = Book.search(id);
         for(Book b : bookList) {
             b.returnBook();
         }
 
-        String query = String.format("delete from librarian where id = %d", this.getId());
+        String query = String.format("delete from librarian where id = %d", id);
         DataBase.execution(query);
     }
 
