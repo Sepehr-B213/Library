@@ -1,3 +1,9 @@
+/*
+        dar in kelas vizhegi haye moshtarak az jomle id,name & password va hamintor method haye setter , getter
+        baraye in vizhegi ha tarif shode ast ke kelas haye Admin & Librariaan az in super class ers bari darand.
+
+ */
+
 package model;
 
 public class User {
@@ -8,14 +14,15 @@ public class User {
 
     public User() {
         this(0, "", "");
-    }
+    } // 1st constructor
 
-    public User(int id, String name, String password) {
+    public User(int id, String name, String password) { // 2nd constructor
         this.setId(id);
         this.setName(name);
         this.setPassword(password);
     }
 
+    // setter and getter methods :
     public int getId() {
         return id;
     }
