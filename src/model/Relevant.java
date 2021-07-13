@@ -44,7 +44,7 @@ public class Relevant { // igad nemoone haaye static az user,admin,book va libra
             "لطفا فیلد های خالی را پر کنید.",
             "کتاب شما با موفقیت به فهرست کتاب ها افزوده شد.",
             "متاسفانه مشکلی در افزودن کتاب به فهرست به وجود آمد."
-
+    };
 
 
     public static String[] AddLibrarianPageErrors = { // arrays of errors for LibrarianPage
