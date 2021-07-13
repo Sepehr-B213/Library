@@ -17,76 +17,110 @@
     <center>
         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="424.0" prefWidth="450.0" style="-fx-background-color: #2D3447;">
             <children>
-                <JFXPasswordField fx:id="confirmFLD" focusColor="#163c86" layoutX="130.0" layoutY="236.0" prefHeight="25.0" prefWidth="238.0" promptText="confirm password" style="-fx-text-inner-color:#21C3FE">
+                <JFXPasswordField fx:id="confirmFLD" layoutX="130.0" layoutY="236.0" prefHeight="25.0" prefWidth="238.0" promptText="confirm password" style="-fx-text-inner-color:#21C3FE">
                     <unFocusColor>
                         <LinearGradient endX="1.0" endY="1.0">
                             <stops>
-                                <Stop color="#0f3cd0" />
-                                <Stop color="#11acd7" offset="1.0" />
+                                <Stop color="#00d2ff" />
+                                <Stop color="#00d2ff" offset="0.007662835249042145" />
+                        <Stop color="WHITE" offset="1.0" />
                             </stops>
                         </LinearGradient>
                     </unFocusColor>
+               <focusColor>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#0059ff" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </focusColor>
                 </JFXPasswordField>
-                <JFXPasswordField fx:id="passwordFLD" focusColor="#163c86" layoutX="130.0" layoutY="173.0" prefHeight="25.0" prefWidth="238.0" promptText="password" style="-fx-text-inner-color:#21C3FE">
+                <JFXPasswordField fx:id="passwordFLD" layoutX="130.0" layoutY="173.0" prefHeight="25.0" prefWidth="238.0" promptText="password" style="-fx-text-inner-color:#21C3FE">
                     <unFocusColor>
                         <LinearGradient endX="1.0" endY="1.0">
                             <stops>
-                                <Stop color="#0f3cd0" />
-                                <Stop color="#11acd7" offset="1.0" />
+                                <Stop color="#00daff" />
+                                <Stop color="WHITE" offset="1.0" />
                             </stops>
                         </LinearGradient>
                     </unFocusColor>
+               <focusColor>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#001fff" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </focusColor>
                 </JFXPasswordField>
-                <JFXTextField fx:id="nameFLD" focusColor="#163c86" layoutX="130.0" layoutY="47.0" prefHeight="25.0" prefWidth="238.0" promptText="name" style="-fx-text-inner-color:#21C3FE">
+                <JFXTextField fx:id="nameFLD" layoutX="130.0" layoutY="47.0" prefHeight="25.0" prefWidth="238.0" promptText="name" style="-fx-text-inner-color:#21C3FE">
                     <unFocusColor>
                         <LinearGradient endX="1.0" endY="1.0">
                             <stops>
-                                <Stop color="#0a35ab" />
-                                <Stop color="#0dcdeb" offset="1.0" />
+                                <Stop color="#00e5ff" />
+                                <Stop color="#00e5ff" offset="0.007662835249042145" />
+                        <Stop color="WHITE" offset="1.0" />
                             </stops>
                         </LinearGradient>
                     </unFocusColor>
+               <focusColor>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#001eff" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </focusColor>
                 </JFXTextField>
-                <JFXTextField fx:id="lastnameFLD" focusColor="#163c86" layoutX="130.0" layoutY="110.0" prefHeight="25.0" prefWidth="238.0" promptText="lastname" style="-fx-text-inner-color:#21C3FE">
+                <JFXTextField fx:id="lastnameFLD" layoutX="130.0" layoutY="110.0" prefHeight="25.0" prefWidth="238.0" promptText="lastname" style="-fx-text-inner-color:#21C3FE">
                     <unFocusColor>
                         <LinearGradient endX="1.0" endY="1.0">
                             <stops>
-                                <Stop color="#0a35ab" />
-                                <Stop color="#0dcdeb" offset="1.0" />
+                                <Stop color="#00d0ff" />
+                                <Stop color="WHITE" offset="1.0" />
                             </stops>
                         </LinearGradient>
                     </unFocusColor>
+               <focusColor>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#0026ff" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </focusColor>
                 </JFXTextField>
                 <JFXCheckBox fx:id="checkBox" checkedColor="#10d0bd" layoutX="130.0" layoutY="294.0" unCheckedColor="#00e8c5" />
-                <JFXButton fx:id="termsBTN" layoutX="152.0" layoutY="290.0" text="شرایط و ضوابط" textFill="#12c6c9" />
-                <JFXButton fx:id="signupBTN" layoutX="230.0" layoutY="358.0" style="-fx-background-color: #11BDF2;" text="sign up" textFill="#02191e" disable="true">
+                <JFXButton fx:id="termsBTN" layoutX="154.0" layoutY="291.0" text="شرایط و ضوابط" textFill="#12c6c9" />
+                <JFXButton fx:id="signupBTN" disable="true" layoutX="230.0" layoutY="358.0" style="-fx-border-color: #00ffee;" text="sign up" textFill="#00ffee">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </JFXButton>
-                <JFXButton fx:id="exitBTN" layoutX="180.0" layoutY="358.0" style="-fx-background-color: #11BDF2;" text="Exit" textFill="#02191e" >
+                <JFXButton fx:id="exitBTN" layoutX="180.0" layoutY="358.0" style="-fx-background-color: #11BDF2;" text="Exit" textFill="#02191e">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </JFXButton>
-                <ImageView blendMode="EXCLUSION" fitHeight="62.0" fitWidth="48.0" layoutX="71.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView blendMode="LIGHTEN" fitHeight="62.0" fitWidth="48.0" layoutX="76.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@images/e27c8735da98ec6ccdcf12e258b26475.png" />
+                        <Image url="@images/user_100px.png" />
                     </image>
                 </ImageView>
-                <ImageView blendMode="EXCLUSION" fitHeight="62.0" fitWidth="48.0" layoutX="71.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView blendMode="LIGHTEN" fitHeight="62.0" fitWidth="48.0" layoutX="76.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@images/e27c8735da98ec6ccdcf12e258b26475.png" />
+                        <Image url="@images/user_100px.png" />
                     </image>
                 </ImageView>
-                <ImageView blendMode="HARD_LIGHT" fitHeight="60.0" fitWidth="59.0" layoutX="65.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView blendMode="HARD_LIGHT" fitHeight="43.0" fitWidth="43.0" layoutX="79.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@images/password.png" />
+                        <Image url="@images/lock_100px.png" />
                     </image>
                 </ImageView>
-                <ImageView blendMode="HARD_LIGHT" fitHeight="60.0" fitWidth="59.0" layoutX="65.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView blendMode="HARD_LIGHT" fitHeight="44.0" fitWidth="43.0" layoutX="79.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@images/password.png" />
+                        <Image url="@images/lock_100px.png" />
                     </image>
                 </ImageView>
                 <Label fx:id="errorLBL" layoutX="100.0" layoutY="15.0" prefHeight="33.0" prefWidth="300.0" textAlignment="CENTER" textFill="#ff3700" />
