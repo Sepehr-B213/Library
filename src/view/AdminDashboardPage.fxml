@@ -129,6 +129,21 @@
                                 <Font size="13.0" />
                             </font>
                         </Button>
+                  <Button fx:id="profileBTN" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #05071F;" text="پروفایل" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/cv_100px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
                         <Button fx:id="logoutBTN" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #05071F;" text="Log Out" textFill="#fffdfd">
                             <graphic>
                                 <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
@@ -155,6 +170,7 @@
                         <Pane fx:id="reportPNL" prefHeight="200.0" prefWidth="200.0" />
                         <Pane fx:id="userPNL" prefHeight="200.0" prefWidth="200.0" />
                         <Pane fx:id="homePNL" prefHeight="200.0" prefWidth="200.0" />
+                  <Pane fx:id="profilePNL" prefHeight="200.0" prefWidth="200.0" />
                     </children>
                 </StackPane>
             </children>
