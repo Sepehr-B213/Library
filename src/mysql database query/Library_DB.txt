@@ -1,0 +1,103 @@
+create database library_db;
+
+alter database library_db
+character set utf8 collate utf8_persian_ci;
+
+create table book
+(
+id int primary key auto_increment,
+name varchar(30) not null unique,
+author varchar(50) not null,
+librarian_id int,
+isAvailable boolean default true,
+borrowedDate date,
+extended boolean default false
+)auto_increment = 1000;
+
+
+create table librarian
+(
+id int not null primary key auto_increment,
+password varchar(30) not null,
+Name varchar(25) not null ,
+lastName varchar(25) not null
+)auto_increment=10000;
+
+
+
+alter table book
+add foreign key
+(librarian_id)
+references Librarian (id);
+
+
+
+create table admin
+(id int primary key auto_increment,
+name varchar(25) not null ,
+password varchar(30) not null,
+)auto_increment=1000;
+
+
+
+insert into librarian
+(password,name,lastName)
+values
+('asc21','ali','alavi'),
+('asc4a','reza','bayat'),
+('saf85','mohammad','khorsandi'),
+('saf4','amin','bahrami'),
+('as45','sepehr','beheshti'),
+('fdh8','amir','yaghoub'),
+('rhrh6','hossein','askari'),
+('drzh6','hasan','reyvandi'),
+('zrh54h','yones','sohrabi'),
+('zrh4','sajad','lotfi'),
+('zrh63','behnam','izadi');
+
+
+insert into book
+(name,author,librarian_id,isAvailable,borrowedDate,extended)
+values
+('hsd','bahram',10000,false,'2021-06-01',false),
+('hrdhb','bahram',10001,false,'2021-05-02',true),
+('erbe','bahram',10001,false,'2021-06-02',false),
+('jrtjn','navab',null,true,null,false),
+('trnjr','nader',null,true,null,false),
+('trrt','nader',null,true,null,false),
+('tjrt','nader',null,true,null,false),
+('erhea','nader',10002,false,'2021-06-02',false);
+
+
+
+
+
+insert into librarian
+(password,name,lastName)
+values
+('asc21','علی','علوی'),
+('asc4a','اشکان','عباسی'),
+('saf85','مهدی','فنونی'),
+('saf4','حیدر','میرزایی'),
+('as45','محمد','مددی'),
+('fdh8','امیر','جعفری'),
+('rhrh6','رضا','ثابتی'),
+('drzh6','تقی','حسنی'),
+('zrh54h','عماد','عینی');
+
+
+
+
+insert into book
+(name,author)
+values
+('جویندگان','تام'),
+('مخفی','جوانا'),
+('کیشوت','میگل'),
+('حلقه','تالکین'),
+('هابیت','تالکین'),
+('شازده','اگزو'),
+('بوستان','سعدی'),
+('شاهنامه','فردوسی'),
+('رویا','ژاکین'),
+('گلستان','سعدی');
