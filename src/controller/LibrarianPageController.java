@@ -62,7 +62,7 @@ public class LibrarianPageController extends MainController implements Initializ
         userDeleteBTN.setOnAction(event -> {
             if(selectedRaw >= 0) {
                 int librarianId = getRaw(hBoxes.get(selectedRaw)).getId();
-                //Librarian.delete(librarianId);
+                Librarian.delete(librarianId);
                 librarians.remove(selectedRaw);
                 userChildPNL.getChildren().removeAll(hBoxes);
                 rawCreator();

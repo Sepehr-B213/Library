@@ -78,7 +78,7 @@ public class SettingPageController implements Initializable {
             }
         }
         else
-            changePassLBL.setText(Relevant.signUpPageErrors[0]);
+            changeNameLBL.setText(Relevant.signUpPageErrors[0]);
     }
 
     public boolean checkNotEmpty(){

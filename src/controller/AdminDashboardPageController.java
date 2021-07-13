@@ -106,11 +106,21 @@ public class AdminDashboardPageController extends MainController implements Init
         settingsBTN.setOnAction(event -> {
             settingPNL.getChildren().removeAll();
             try {
-                reportPNL.getChildren().add(load("../view/SettingPage.fxml"));
+                settingPNL.getChildren().add(load("../view/SettingPage.fxml"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
             settingPNL.toFront();
+        });
+
+        profileBTN.setOnAction(event -> {
+            profilePNL.getChildren().removeAll();
+            try {
+                profilePNL.getChildren().add(load("../view/LibrarianProfilePage.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            profilePNL.toFront();
         });
 
         logoutBTN.setOnAction(event -> {
@@ -126,5 +136,7 @@ public class AdminDashboardPageController extends MainController implements Init
     public void access() {
         if(Relevant.user instanceof Librarian)
             menuBar.getChildren().removeAll(usersBTN, reportBTN);
+        else
+            menuBar.getChildren().removeAll(profileBTN);
     }
 }
