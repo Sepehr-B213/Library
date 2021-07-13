@@ -112,6 +112,8 @@
                 </Label>
                 <JFXButton layoutX="58.0" layoutY="344.0" style="-fx-background-color: #01AAFE;" text="Choose your Picture" textFill="#020072" />
                 <JFXButton layoutX="91.0" layoutY="404.0" text="Enter" textFill="#1f98ee" />
+            <Label fx:id="changePassLBL" alignment="CENTER" layoutX="33.0" layoutY="167.0" prefHeight="22.0" prefWidth="154.0" textFill="WHITE" />
+            <Label fx:id="changeNameLBL" alignment="CENTER" layoutX="507.0" layoutY="114.0" prefHeight="22.0" prefWidth="154.0" textFill="WHITE" />
             </children>
         </AnchorPane>
     </center>
