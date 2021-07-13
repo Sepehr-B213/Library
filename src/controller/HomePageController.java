@@ -13,6 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.Book;
 import model.Librarian;
+import model.Relevant;
 
 import java.io.IOException;
 import java.net.URL;
@@ -54,6 +55,8 @@ public class HomePageController extends MainController implements Initializable 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        access();
+
         homeSearchCMB.getItems().addAll("نام کتاب", "شماره کتاب", "نویسنده");
         homeSearchCMB.setValue("نام کتاب");
 
@@ -118,7 +121,7 @@ public class HomePageController extends MainController implements Initializable 
         for(Book book : bookArrayList) {
             try {
                 hBoxes.add((HBox) load("../view/BookTRaw.fxml"));
-                setRaw(hBoxes.get(i), bookArrayList.get(i));
+                setRaw(hBoxes.get(i), book);
                 homeChildrenPNL.getChildren().add(hBoxes.get(i));
                 i++;
             } catch (IOException e) {
@@ -132,7 +135,7 @@ public class HomePageController extends MainController implements Initializable 
         ((Label)hBox.getChildren().get(1)).setText(book.getName());
         ((Label)hBox.getChildren().get(2)).setText(book.getAuthor());
         ((Label)hBox.getChildren().get(3)).setText(book.getId()+"");
-        ((Button)hBox.getChildren().get(4)).setText(book.getIsAvailable()+"");
+        ((Label)hBox.getChildren().get(4)).setText(book.getIsAvailable() ? "دردسترس" : "امانت شده");
     }
 
     public Book getRaw(HBox hBox) {
@@ -194,9 +197,11 @@ public class HomePageController extends MainController implements Initializable 
 
     public void setIsAvailableBooks() {
         isAvailableBooks.clear();
-        for(Book book : books) {
-            if(book.getIsAvailable())
-                isAvailableBooks.add(book);
+        if(books.size() > 0) {
+            for (Book book : books) {
+                if (book.getIsAvailable())
+                    isAvailableBooks.add(book);
+            }
         }
     }
 
@@ -210,5 +215,10 @@ public class HomePageController extends MainController implements Initializable 
                 isAvailableBooks.remove(books.get(selectedRaw));
             books.remove(selectedRaw);
         }
+    }
+
+    public void access() {
+        if(Relevant.user instanceof Librarian)
+            deleteBookBTN.setVisible(false);
     }
 }
