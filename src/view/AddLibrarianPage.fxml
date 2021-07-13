@@ -87,7 +87,7 @@
                   <Font name="System Italic" size="12.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="librarianRepeatpassFLD" layoutX="78.0" layoutY="277.0" prefHeight="25.0" prefWidth="172.0" promptText="Repeat Password">
+            <JFXTextField fx:id="librarianRepeatPassFLD" layoutX="78.0" layoutY="277.0" prefHeight="25.0" prefWidth="172.0" promptText="Repeat Password">
                <unFocusColor>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
