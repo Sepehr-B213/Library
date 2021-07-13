@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
@@ -12,91 +13,172 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReportPageController">
     <center>
         <AnchorPane prefHeight="554.0" prefWidth="793.0" style="-fx-background-color: #000000;">
             <children>
-                <JFXDatePicker fx:id="dateFLD" defaultColor="#474c4d" layoutX="579.0" layoutY="18.0" prefHeight="31.0" prefWidth="176.0" promptText="تاریخ" />
-                <VBox layoutX="-1.0" layoutY="146.0" prefHeight="408.0" prefWidth="793.0">
+                <JFXDatePicker fx:id="dateFLD" layoutX="594.0" layoutY="34.0" prefHeight="31.0" prefWidth="176.0" promptText="تاریخ">
+               <defaultColor>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#00b2ff" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </defaultColor></JFXDatePicker>
+                <JFXTextField fx:id="bookFLD" layoutX="356.0" layoutY="93.0" prefHeight="25.0" prefWidth="153.0" promptText="کتاب">
+               <unFocusColor>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#00b2ff" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </unFocusColor></JFXTextField>
+                <JFXTextField fx:id="authorFLD" layoutX="355.0" layoutY="42.0" prefHeight="25.0" prefWidth="154.0" promptText="نویسنده">
+               <unFocusColor>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#00b2ff" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </unFocusColor></JFXTextField>
+                <HBox layoutX="160.0" layoutY="176.0" prefHeight="55.0" prefWidth="599.0">
                     <children>
-                        <ScrollPane prefHeight="415.0" prefWidth="793.0">
-                            <content>
-                                <VBox fx:id="reportChildrenPNL" prefHeight="458.0" prefWidth="792.0" spacing="5.0" style="-fx-background-color: #02030A; -fx-border-color: #000000;">
-                                    <padding>
-                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                    </padding>
-                                </VBox>
-                            </content>
-                        </ScrollPane>
-                    </children>
-                </VBox>
-                <JFXButton fx:id="dateSearchBTN" layoutX="536.0" layoutY="33.0" prefHeight="19.0" prefWidth="40.0" text=".">
-                    <graphic>
-                        <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@images/icons8_Search_52px.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </JFXButton>
-                <JFXTextField fx:id="bookFLD" layoutX="68.0" layoutY="29.0" promptText="کتاب" />
-                <JFXButton fx:id="bookSearchBTN" layoutX="25.0" layoutY="33.0" text=".">
-                    <graphic>
-                        <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@images/icons8_Search_52px.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </JFXButton>
-                <JFXTextField fx:id="authorFLD" layoutX="328.0" layoutY="29.0" promptText="نویسنده" />
-                <JFXButton fx:id="searchAuthorBTN" layoutX="285.0" layoutY="33.0" text=".">
-                    <graphic>
-                        <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@images/icons8_Search_52px.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </JFXButton>
-                <HBox layoutX="2.0" layoutY="91.0" prefHeight="55.0" prefWidth="786.0">
-                    <children>
-                        <Label alignment="BASELINE_RIGHT" prefHeight="55.0" prefWidth="287.0" text="کتاب" textAlignment="CENTER" textFill="#096ddb" textOverrun="CENTER_WORD_ELLIPSIS">
-                            <padding>
-                                <Insets right="100.0" />
-                            </padding>
+                        <Label alignment="CENTER" prefHeight="55.0" prefWidth="126.0" text="کتاب" textAlignment="CENTER" textFill="#096ddb" textOverrun="CENTER_WORD_ELLIPSIS">
                             <font>
                                 <Font name="System Italic" size="14.0" />
                             </font>
                         </Label>
                         <Label alignment="BASELINE_CENTER" prefHeight="55.0" prefWidth="189.0" text="نویسنده" textFill="#096ddb">
                             <padding>
-                                <Insets right="40.0" />
+                                <Insets left="40.0" right="40.0" />
                             </padding>
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Label>
-                        <Label alignment="BASELINE_CENTER" prefHeight="55.0" prefWidth="152.0" text="شماره" textFill="#096ddb">
-                            <padding>
-                                <Insets right="40.0" />
-                            </padding>
+                        <Label alignment="BASELINE_CENTER" prefHeight="55.0" prefWidth="195.0" text="شماره" textFill="#096ddb">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Label>
-                        <Label alignment="BASELINE_CENTER" prefHeight="55.0" prefWidth="152.0" text="وضعیت" textFill="#096ddb">
-                            <padding>
-                                <Insets right="40.0" />
-                            </padding>
+                        <Label alignment="BASELINE_CENTER" prefHeight="55.0" prefWidth="152.0" text="تاریخ" textFill="#096ddb">
                             <font>
                                 <Font size="14.0" />
                             </font>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
                         </Label>
                     </children>
                 </HBox>
+            <ScrollPane layoutY="231.0" prefHeight="323.0" prefWidth="793.0">
+               <content>
+                  <VBox fx:id="reportChildrenPNL" prefHeight="324.0" prefWidth="791.0" style="-fx-background-color: #000000;" />
+               </content>
+            </ScrollPane>
+            <JFXDatePicker fx:id="dateFLD1" layoutX="594.0" layoutY="88.0" prefHeight="31.0" prefWidth="176.0" promptText="تاریخ">
+               <defaultColor>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#00b2ff" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </defaultColor>
+            </JFXDatePicker>
+            <JFXCheckBox fx:id="reportCHB" checkedColor="#00d9ff" layoutX="694.0" layoutY="146.0" nodeOrientation="RIGHT_TO_LEFT" text="توضیحات">
+               <unCheckedColor>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#00eeff" />
+                        <Stop color="#088af5" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </unCheckedColor>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#00b2ff" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </JFXCheckBox>
+            <Button fx:id="authorSearchBTN" layoutX="319.0" layoutY="41.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="28.0" style="-fx-background-color: #000000;">
+               <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@images/icons8_Search_52px.png" />
+                            </image>
+                        </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="bookSearchBTN" layoutX="319.0" layoutY="92.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="28.0" style="-fx-background-color: #000000;">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/icons8_Search_52px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="dateSearchBTN" layoutX="558.0" layoutY="40.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="28.0" style="-fx-background-color: #000000;">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/icons8_Search_52px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="dateSearchBTN1" layoutX="558.0" layoutY="100.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="28.0" style="-fx-background-color: #000000;">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/icons8_Search_52px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <ImageView blendMode="HARD_LIGHT" fitHeight="94.0" fitWidth="126.0" layoutX="14.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/concept1.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="33.0" layoutY="111.0" prefHeight="35.0" prefWidth="87.0" text="کتابخونه">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#004aff" />
+                        <Stop color="RED" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Button fx:id="extensionBTN" layoutX="21.0" layoutY="178.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="56.0" style="-fx-background-color: #000000;">
+               <graphic>
+                  <ImageView fitHeight="37.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/add_list_50px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label layoutX="77.0" layoutY="195.0" prefHeight="17.0" prefWidth="45.0" text="تمدید" textFill="#76e5f8">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </Label>
             </children>
         </AnchorPane>
     </center>

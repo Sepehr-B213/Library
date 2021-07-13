@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import model.Librarian;
 import model.Relevant;
 import java.io.IOException;
 import java.net.URL;
@@ -35,6 +36,9 @@ public class AdminDashboardPageController extends MainController implements Init
     private Button settingsBTN;
 
     @FXML
+    private Button profileBTN;
+
+    @FXML
     private Button logoutBTN;
 
     @FXML
@@ -50,6 +54,9 @@ public class AdminDashboardPageController extends MainController implements Init
     private Pane homePNL;
 
     @FXML
+    private Pane profilePNL;
+
+    @FXML
     private Button minBTN;
 
     @FXML
@@ -57,6 +64,8 @@ public class AdminDashboardPageController extends MainController implements Init
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        access();
 
         try {
             homePNL.getChildren().add(load("../view/HomePage.fxml"));
@@ -114,9 +123,8 @@ public class AdminDashboardPageController extends MainController implements Init
         minBTN.setOnAction(event -> minimize(minBTN));
     }
 
-    public void user() {
-        menuBar.getChildren().removeAll(usersBTN, reportBTN);
+    public void access() {
+        if(Relevant.user instanceof Librarian)
+            menuBar.getChildren().removeAll(usersBTN, reportBTN);
     }
-
-
 }

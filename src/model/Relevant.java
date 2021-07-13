@@ -33,16 +33,19 @@ public class Relevant { // igad nemoone haaye static az user,admin,book va libra
             "رمز وارد شده اشتباه است"
     };
 
+
     public static String[] signUpPageErrors = { // arrays of errors for SighUpPage
             "رمز عبور و تایید رمز عبور مطابقت ندارد !",
             "ثبت نام با نام کاربری %d با موفقیت انجام شد"
     };
+  
 
     public static String[] addBookPageErrors = { // arrays of errors for BookPage
             "لطفا فیلد های خالی را پر کنید.",
             "کتاب شما با موفقیت به فهرست کتاب ها افزوده شد.",
             "متاسفانه مشکلی در افزودن کتاب به فهرست به وجود آمد."
-    };
+
+
 
     public static String[] AddLibrarianPageErrors = { // arrays of errors for LibrarianPage
             "فیلد های خالی را پر کنید",
