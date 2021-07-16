@@ -92,7 +92,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <JFXTextField fx:id="homeSearchFLD" layoutX="634.0" layoutY="10.0" prefHeight="16.0" prefWidth="152.0" promptText="search" />
+            <JFXTextField fx:id="homeSearchFLD" layoutX="634.0" layoutY="10.0" prefHeight="16.0" prefWidth="152.0" promptText="search" style="-fx-text-inner-color:#21C3FE"/>
             <Button fx:id="homeSearchBTN" layoutX="602.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: #000000;">
                <graphic>
                   <ImageView fitHeight="17.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
