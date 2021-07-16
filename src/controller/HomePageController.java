@@ -82,6 +82,7 @@ public class HomePageController extends MainController implements Initializable 
                 selectedRaw = -1;
 
                 homeChildrenPNL.getChildren().removeAll(hBoxes);
+                hBoxes.clear();
                 if (homeCHB.isSelected()) {
                     if (!isAvailableBooks.isEmpty())
                         rawCreator(isAvailableBooks);
