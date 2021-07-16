@@ -7,7 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 
-<HBox fx:id="bookRawHB" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="53.0" prefWidth="695.0" spacing="80.0" style="-fx-background-color: #02030A; -fx-background-radius: 5; -fx-background-insets: 0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" >
+<HBox fx:id="bookRawHB" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="53.0" prefWidth="786.0" spacing="80.0" style="-fx-background-color: #02030A; -fx-background-radius: 5; -fx-background-insets: 0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -17,12 +17,15 @@
                 <Insets left="10.0" />
             </HBox.margin>
         </ImageView>
-        <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="87.0" text="زندگی" textAlignment="CENTER" textFill="#5b84c6" textOverrun="CENTER_ELLIPSIS">
+        <Label alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="87.0" text="زندگی" textAlignment="CENTER" textFill="#5b84c6" textOverrun="CENTER_ELLIPSIS">
             <padding>
                 <Insets right="40.0" />
             </padding>
+         <HBox.margin>
+            <Insets left="20.0" />
+         </HBox.margin>
         </Label>
-        <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="81.0" text="ویکتورهوگو" textFill="#85aceb">
+        <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="81.0" text="ویکتورهوگو" textFill="#85aceb">
             <HBox.margin>
                 <Insets right="30.0" />
             </HBox.margin>

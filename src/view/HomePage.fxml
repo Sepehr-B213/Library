@@ -44,7 +44,7 @@
                   </Label>
                   <Label text="نویسنده" textFill="#6ab7ff">
                      <HBox.margin>
-                        <Insets left="30.0" />
+                        <Insets left="40.0" />
                      </HBox.margin>
                      <font>
                         <Font name="System Italic" size="14.0" />
@@ -52,7 +52,7 @@
                   </Label>
                   <Label text="شماره کتاب" textFill="#5cb0f5">
                      <HBox.margin>
-                        <Insets left="10.0" />
+                        <Insets left="20.0" />
                      </HBox.margin>
                      <font>
                         <Font name="System Italic" size="14.0" />
@@ -92,7 +92,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <JFXTextField fx:id="homeSearchFLD" layoutX="634.0" layoutY="10.0" prefHeight="16.0" prefWidth="152.0" promptText="search" style="-fx-text-inner-color:#21C3FE"/>
+            <JFXTextField fx:id="homeSearchFLD" layoutX="634.0" layoutY="10.0" prefHeight="16.0" prefWidth="152.0" promptText="search" style="-fx-text-inner-color:#21C3FE" />
             <Button fx:id="homeSearchBTN" layoutX="602.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: #000000;">
                <graphic>
                   <ImageView fitHeight="17.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
