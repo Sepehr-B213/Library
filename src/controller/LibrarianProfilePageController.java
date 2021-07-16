@@ -47,6 +47,11 @@ public class LibrarianProfilePageController extends MainController implements In
 
         returnBookBTN.setOnAction(event -> {
             books.get(selectedRaw).returnBook();
+            books.remove(selectedRaw);
+            librarianReportChPNL.getChildren().removeAll(hBoxes);
+            hBoxes.clear();
+            selectedRaw = -1;
+            rawCreator();
         });
     }
 
@@ -93,14 +98,6 @@ public class LibrarianProfilePageController extends MainController implements In
             selectedRaw = i;
             hBoxes.get(i).setStyle("-fx-background-color : #0A0E3F");
         });
-    }
-
-    public int convertInt(String str) {
-        try {
-            return Integer.parseInt(str);
-        } catch (Exception ex) {
-            return 0 ;
-        }
     }
 
     public void access() {
