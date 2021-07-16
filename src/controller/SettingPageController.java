@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Paint;
 import model.Admin;
 import model.Librarian;
 import model.Relevant;
@@ -58,11 +59,18 @@ public class SettingPageController implements Initializable {
                     librarian.setPassword(passwordChangeFLD.getText());
                     librarian.update();
                 }
-            } else
-                changePassLBL.setText(Relevant.signUpPageErrors[0]);
+                changePassLBL.setTextFill(Paint.valueOf("#4be928"));
+                changePassLBL.setText(Relevant.settingPageErrors[2]);
+            }
+            else {
+                changePassLBL.setTextFill(Paint.valueOf("#ff3700"));
+                changePassLBL.setText(Relevant.settingPageErrors[0]);
+            }
         }
-        else
-            changePassLBL.setText(Relevant.signUpPageErrors[1]);
+        else {
+            changePassLBL.setTextFill(Paint.valueOf("#ff3700"));
+            changePassLBL.setText(Relevant.settingPageErrors[1]);
+        }
     }
 
     public void changeName() {
@@ -76,9 +84,13 @@ public class SettingPageController implements Initializable {
                 librarian.setName(nameChangeFLD.getText());
                 librarian.update();
             }
+            changeNameLBL.setTextFill(Paint.valueOf("#4be928"));
+            changeNameLBL.setText(Relevant.settingPageErrors[2]);
         }
-        else
-            changeNameLBL.setText(Relevant.signUpPageErrors[0]);
+        else {
+            changeNameLBL.setTextFill(Paint.valueOf("#ff3700"));
+            changeNameLBL.setText(Relevant.settingPageErrors[0]);
+        }
     }
 
     public boolean checkNotEmpty(){

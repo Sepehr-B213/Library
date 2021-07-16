@@ -127,6 +127,10 @@ public class Book {
         return getBooks(condition);
     }
 
+    public static ArrayList<Book> search(Date date) {
+        return search(date, date);
+    }
+
     public static ArrayList<Book> search(int librarian_id) {
         String condition = String.format(" where librarian_id = %d", librarian_id);
         return getBooks(condition);
@@ -141,7 +145,7 @@ public class Book {
         String query;
         if(librarian_id == 0) {
             query = String.format("update book set librarian_id = null, isAvailable = %b ,"+
-                            "borrowedDate = '%s' , extended = %b where id = %d",
+                            "borrowedDate = %s , extended = %b where id = %d",
                     this.isAvailable, this.borrowedDate, this.extended, this.id);
         } else {
             query = String.format("update book set librarian_id = %d, isAvailable = %b ,"+
