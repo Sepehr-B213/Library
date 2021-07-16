@@ -32,7 +32,7 @@
                 <Insets right="10.0" />
             </HBox.margin>
         </Label>
-      <Label fx:id="situationLBL" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="76.0" textFill="#fff3f3" />
+        <Label fx:id="situationLBL" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="100.0" textFill="#fff3f3" />
     </children>
     <effect>
         <DropShadow blurType="GAUSSIAN" height="5.0" radius="2.0" width="5.0" />
