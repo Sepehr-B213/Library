@@ -65,8 +65,8 @@ public class LibrarianPageController extends MainController implements Initializ
                 Librarian.delete(librarianId);
                 librarians.remove(selectedRaw);
                 userChildPNL.getChildren().removeAll(hBoxes);
-                rawCreator();
                 selectedRaw = -1;
+                rawCreator();
             }
         });
 
