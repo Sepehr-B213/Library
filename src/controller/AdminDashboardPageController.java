@@ -3,9 +3,9 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import model.Admin;
 import model.Librarian;
 import model.Relevant;
@@ -14,6 +14,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AdminDashboardPageController extends MainController implements Initializable {
+
+    @FXML
+    private Label nameLBL;
 
     @FXML
     private VBox menuBar;
@@ -67,62 +70,17 @@ public class AdminDashboardPageController extends MainController implements Init
     public void initialize(URL location, ResourceBundle resources) {
 
         access();
+        loadHomePage();
 
-        try {
-            homePNL.getChildren().add(load("../view/HomePage.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        homeBTN.setOnAction(event -> loadHomePage());
 
-        homeBTN.setOnAction(event -> {
-            homePNL.getChildren().removeAll();
-            try {
-                homePNL.getChildren().add(load("../view/HomePage.fxml"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            homePNL.toFront();
-        });
+        usersBTN.setOnAction(event -> loadUserPage());
 
-        usersBTN.setOnAction(event -> {
-            userPNL.getChildren().removeAll();
-            try {
-                userPNL.getChildren().add(load("../view/LibrarianPage.fxml"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            userPNL.toFront();
-        });
+        reportBTN.setOnAction(event -> loadReportPage());
 
-        reportBTN.setOnAction(event -> {
-            reportPNL.getChildren().removeAll();
-            try {
-                reportPNL.getChildren().add(load("../view/ReportPage.fxml"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            reportPNL.toFront();
-        });
+        settingsBTN.setOnAction(event -> loadSettingPage());
 
-        settingsBTN.setOnAction(event -> {
-            settingPNL.getChildren().removeAll();
-            try {
-                settingPNL.getChildren().add(load("../view/SettingPage.fxml"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            settingPNL.toFront();
-        });
-
-        profileBTN.setOnAction(event -> {
-            profilePNL.getChildren().removeAll();
-            try {
-                profilePNL.getChildren().add(load("../view/LibrarianProfilePage.fxml"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            profilePNL.toFront();
-        });
+        profileBTN.setOnAction(event -> loadProfilePage());
 
         logoutBTN.setOnAction(event -> {
             Relevant.loginStage.show();
@@ -134,10 +92,67 @@ public class AdminDashboardPageController extends MainController implements Init
         minBTN.setOnAction(event -> minimize(minBTN));
     }
 
+    public void loadHomePage() {
+        homePNL.getChildren().removeAll();
+        try {
+            homePNL.getChildren().add(load("../view/HomePage.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        homePNL.toFront();
+    }
+
+    public void loadUserPage() {
+        userPNL.getChildren().removeAll();
+        try {
+            userPNL.getChildren().add(load("../view/LibrarianPage.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        userPNL.toFront();
+    }
+
+    public void loadReportPage() {
+        reportPNL.getChildren().removeAll();
+        try {
+            reportPNL.getChildren().add(load("../view/ReportPage.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        reportPNL.toFront();
+    }
+
+    public void loadSettingPage() {
+        settingPNL.getChildren().removeAll();
+        try {
+            settingPNL.getChildren().add(load("../view/SettingPage.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        settingPNL.toFront();
+    }
+
+    public void loadProfilePage() {
+        profilePNL.getChildren().removeAll();
+        try {
+            profilePNL.getChildren().add(load("../view/LibrarianProfilePage.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        profilePNL.toFront();
+    }
+
     public void access() {
-        if(Relevant.user instanceof Librarian)
+        if(Relevant.user instanceof Librarian) {
             menuBar.getChildren().removeAll(usersBTN, reportBTN);
-        else if(Relevant.user instanceof Admin)
+            nameLBL.setText(Relevant.user.getName() + " " + ((Librarian) Relevant.user).getLastName());
+        }
+        else if(Relevant.user instanceof Admin) {
             menuBar.getChildren().removeAll(profileBTN);
+            nameLBL.setText(Relevant.user.getName());
+        }
+
+        menuBTN.setDisable(true);
+        inboxBTN.setDisable(true);
     }
 }

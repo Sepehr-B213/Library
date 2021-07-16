@@ -1,9 +1,6 @@
 package controller;
 
-import com.jfoenix.controls.JFXCheckBox;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXTextField;
-import com.jfoenix.controls.JFXToggleButton;
+import com.jfoenix.controls.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -86,11 +83,11 @@ public class HomePageController extends MainController implements Initializable 
 
                 homeChildrenPNL.getChildren().removeAll(hBoxes);
                 if (homeCHB.isSelected()) {
-                    if (isAvailableBooks != null)
+                    if (!isAvailableBooks.isEmpty())
                         rawCreator(isAvailableBooks);
                 }
                 else {
-                    if (books != null)
+                    if (!books.isEmpty())
                         rawCreator(books);
                 }
             }
@@ -109,36 +106,44 @@ public class HomePageController extends MainController implements Initializable 
         homeCHB.setOnAction(event -> {
             homeChildrenPNL.getChildren().removeAll(hBoxes);
             if (homeCHB.isSelected()) {
-                if (isAvailableBooks != null)
+                if (!isAvailableBooks.isEmpty())
                     rawCreator(isAvailableBooks);
             }
             else {
-                if (books != null)
+                if (!books.isEmpty())
                     rawCreator(books);
             }
         });
 
         borrowBookBTN.setOnAction(event -> {
             if(selectedRaw >= 0) {
-                int bookId = getRaw(hBoxes.get(selectedRaw)).getId();
-                Book book = Book.searchById(bookId);
+                Book book = getRaw(hBoxes.get(selectedRaw));
                 if(book.getIsAvailable())
                     book.lend(Relevant.user.getId());
-                selectedRaw = -1;
+
                 homeChildrenPNL.getChildren().removeAll(hBoxes);
+                hBoxes.clear();
                 if (homeCHB.isSelected()) {
-                    if (isAvailableBooks != null)
+                    isAvailableBooks.get(selectedRaw).lend(Relevant.user.getId());
+                    isAvailableBooks.remove(selectedRaw);
+                    selectedRaw = -1;
+                    if (!isAvailableBooks.isEmpty())
                         rawCreator(isAvailableBooks);
                 }
                 else {
-                    if (books != null)
-                        rawCreator(books);
+                    books.get(selectedRaw).lend(Relevant.user.getId());
+                    setIsAvailableBooks();
+                    selectedRaw = -1;
+                    rawCreator(books);
                 }
             }
         });
+
+
     }
 
     public void rawCreator(ArrayList<Book> bookArrayList) {
+        hBoxes.clear();
         int i = 0;
         for(Book book : bookArrayList) {
             try {
@@ -237,6 +242,14 @@ public class HomePageController extends MainController implements Initializable 
                 isAvailableBooks.remove(books.get(selectedRaw));
             books.remove(selectedRaw);
         }
+    }
+
+    public void refresh() {
+        stage = null;
+        selectedRaw = -1;
+        books = Book.getBooks("");
+        setIsAvailableBooks();
+        rawCreator(books);
     }
 
     public void access() {
