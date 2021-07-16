@@ -62,38 +62,39 @@ public class ReportPageController extends MainController implements Initializabl
     public void initialize(URL location, ResourceBundle resources) {
         books = Book.getBooks("");
         rawCreator();
-        dateFLD1.setVisible(true);
-        dateSearchBTN1.setVisible(true);
+        dateFLD1.setVisible(false);
+        dateSearchBTN1.setVisible(false);
 
         bookSearchBTN.setOnAction(event -> {
-            reportChildrenPNL.getChildren().removeAll(hBoxes);
-            int id = convertInt(bookFLD.getText());
-            books.clear();
-            books.add(Book.searchById(id));
-            rawCreator();
+            if(!bookFLD.getText().isEmpty()) {
+                books.clear();
+                books.add(Book.searchByName(bookFLD.getText()));
+                rawCreator();
+            }
         });
 
         authorSearchBTN.setOnAction(event -> {
-            reportChildrenPNL.getChildren().removeAll(hBoxes);
-            books = Book.search(authorFLD.getText());
-            rawCreator();
+            if(!authorFLD.getText().isEmpty()) {
+                books = Book.search(authorFLD.getText());
+                rawCreator();
+            }
         });
 
         reportCHB.setOnAction(event -> {
             if(reportCHB.isSelected()) {
-                dateFLD1.setVisible(false);
-                dateSearchBTN1.setVisible(false);
-            }
-            else {
                 dateFLD1.setVisible(true);
                 dateSearchBTN1.setVisible(true);
+            }
+            else {
+                dateFLD1.setVisible(false);
+                dateSearchBTN1.setVisible(false);
             }
         });
 
         dateSearchBTN.setOnAction(event -> {
             if(reportCHB.isSelected()) {
+                System.out.println(dateFLD.getValue());
                 if(!(dateFLD.getValue() == null || dateFLD1.getValue() == null)) {
-                    reportChildrenPNL.getChildren().removeAll(hBoxes);
                     books = Book.search(Date.valueOf(dateFLD.getValue()), Date.valueOf(dateFLD1.getValue()));
                     rawCreator();
                 }
@@ -102,6 +103,7 @@ public class ReportPageController extends MainController implements Initializabl
     }
 
     public void rawCreator() {
+        reportChildrenPNL.getChildren().removeAll(hBoxes);
         int i = 0;
         for(Book book : books) {
             try {
@@ -144,13 +146,5 @@ public class ReportPageController extends MainController implements Initializabl
             selectedRaw = i;
             hBoxes.get(i).setStyle("-fx-background-color : #0A0E3F");
         });
-    }
-
-    public int convertInt(String str) {
-        try {
-            return Integer.parseInt(str);
-        } catch (Exception ex) {
-            return 0 ;
-        }
     }
 }
