@@ -14,6 +14,8 @@ package model;
 
 import javafx.stage.Stage;
 
+import java.sql.Date;
+
 public class Relevant { // igad nemoone haaye static az user,admin,book va librarian baraye
     // dastresi aasan dar noghat mokhtalef progect
 
@@ -35,10 +37,11 @@ public class Relevant { // igad nemoone haaye static az user,admin,book va libra
 
 
     public static String[] signUpPageErrors = { // arrays of errors for SighUpPage
-            "رمز عبور و تایید رمز عبور مطابقت ندارد !",
+            "فیلد های خالی را پر کنید",
+            "رمز عبور و تایید رمز عبور مطابقت ندارد",
             "ثبت نام با نام کاربری %d با موفقیت انجام شد"
     };
-  
+
 
     public static String[] addBookPageErrors = { // arrays of errors for BookPage
             "لطفا فیلد های خالی را پر کنید.",
@@ -55,6 +58,84 @@ public class Relevant { // igad nemoone haaye static az user,admin,book va libra
 
     public static String[] settingPageErrors = { // arrays of errors for SettingPage
             "فیلد های خالی را پر کنید",
-            "رمز عبور و تایید رمز عبور مطابقت ندارد"
+            "رمز عبور و تایید رمز عبور مطابقت ندارد",
+            "تغییرات با موفقیت اعمال شد"
     };
+
+    public static Date date1(Date date, int dayNumber) {
+        if(dayNumber > 0) {
+            String dateStr = date.toString();
+            int month = Integer.parseInt(dateStr.substring(5, 7));
+            int day = Integer.parseInt(dateStr.substring(8, 10));
+            int year = Integer.parseInt(dateStr.substring(0, 4));
+
+            switch (month) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    if (day + dayNumber > 31) {
+                        dayNumber -= 32 - day;
+                        day = 1;
+                        if (month == 12) {
+                            month = 1;
+                            year += 1;
+                        } else
+                            month += 1;
+                    } else {
+                        day += dayNumber;
+                        dayNumber = 0;
+                    }
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    if (day + dayNumber > 30) {
+                        dayNumber -= 31 - day;
+                        day = 1;
+                        month += 1;
+                    } else {
+                        day += dayNumber;
+                        dayNumber = 0;
+                    }
+                    break;
+                case 2:
+                    if (year % 4 == 0) {
+                        if (day + dayNumber > 29) {
+                            dayNumber -= 30 - day;
+                            day = 1;
+                            month += 1;
+                        } else {
+                            day += dayNumber;
+                            dayNumber = 0;
+                        }
+                    } else {
+                        if (day + dayNumber > 28) {
+                            dayNumber -= 29 - day;
+                            day = 1;
+                            month += 1;
+                        } else {
+                            day += dayNumber;
+                            dayNumber = 0;
+                        }
+                    }
+                    break;
+                default:
+                    return null;
+            }
+
+            String resultDateStr =  String.format("%04d-%02d-%02d", year, month, day);
+            return date1(Date.valueOf(resultDateStr), dayNumber);
+        }
+        else if(dayNumber == 0) {
+            return date;
+        }
+        else {
+            return null;
+        }
+    }
 }
